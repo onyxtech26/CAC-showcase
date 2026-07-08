@@ -33,7 +33,7 @@ export default function WhyCAC() {
   ];
 
   return (
-    <section id="why-cac" className="py-24 md:py-32 relative overflow-hidden liquid-glass">
+    <section id="why-cac" className="py-16 md:py-24 relative overflow-hidden liquid-glass">
       {/* Background radial glow */}
       <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] rounded-full bg-tertiary/[0.03] blur-[150px] pointer-events-none" />
 
@@ -116,14 +116,14 @@ export default function WhyCAC() {
               </p>
             </motion.div>
 
-            {/* Mission Card - slightly offset down on desktop */}
+            {/* Mission Card */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               whileHover={{ y: -6 }}
-              className="glass-surface p-8 sm:p-10 fingerprint-bg border-black/5 relative group hover:border-secondary/30 hover:shadow-[0_26px_55px_-26px_rgba(19,41,75,0.35)] transition-shadow duration-300 lg:ml-4"
+              className="glass-surface p-8 sm:p-10 fingerprint-bg border-black/5 relative group hover:border-secondary/30 hover:shadow-[0_26px_55px_-26px_rgba(19,41,75,0.35)] transition-shadow duration-300"
             >
               <div className="flex items-center gap-2 mb-4">
                 <Compass className="w-4 h-4 text-secondary" />

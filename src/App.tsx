@@ -4,10 +4,9 @@ import InquiryLogModal from './components/ui/InquiryLogModal';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
-import StatsBar from './components/sections/StatsBar';
 import About from './components/sections/About';
 import Services from './components/sections/Services';
-import InvestmentOutlook from './components/sections/InvestmentOutlook';
+import CompletedProjects from './components/sections/CompletedProjects';
 import Timeline from './components/sections/Timeline';
 import WhyCAC from './components/sections/WhyCAC';
 import Contact from './components/sections/Contact';
@@ -26,8 +25,8 @@ export default function App() {
     setIsInquiryLogOpen(true);
   };
 
-  const handleViewOutlook = () => {
-    const el = document.getElementById('investment');
+  const handleViewProjects = () => {
+    const el = document.getElementById('projects');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
     }
@@ -43,19 +42,13 @@ export default function App() {
       <PremiumBackground />
 
       {/* Dynamic Floating Glass Navbar */}
-      <Navbar
-        onBookConsultation={handleBookConsultation}
-        onOpenInquiryLog={handleOpenInquiryLog}
-      />
+      <Navbar onOpenInquiryLog={handleOpenInquiryLog} />
 
-      {/* Hero Section containing the WebGL Shader background */}
+      {/* Hero Section with animated property graphic */}
       <Hero
         onBookConsultation={handleBookConsultation}
-        onViewOutlook={handleViewOutlook}
+        onViewOutlook={handleViewProjects}
       />
-
-      {/* Counts Portfolio houses, portfolio value, net profit & capital sought */}
-      <StatsBar />
 
       {/* Firm Overview Section */}
       <About />
@@ -63,8 +56,8 @@ export default function App() {
       {/* 6 Capabilities with expandable forensics drawer */}
       <Services />
 
-      {/* Detailed Investment properties table with search and dynamic sorting */}
-      <InvestmentOutlook />
+      {/* Completed Projects — futuristic neon track-record cards */}
+      <CompletedProjects />
 
       {/* Interactive Process Stepper with system outputs */}
       <Timeline />

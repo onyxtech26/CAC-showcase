@@ -1,17 +1,9 @@
-export interface Asset {
+export interface CompletedProject {
   id: string;
-  name: string;
-  location: string;
-  type: 'Subsale' | 'Land';
-  acquisition: number;        // Acquisition price (RM)
-  projectedResale: number;   // Projected resale value (RM)
-  projectedNetProfit: number; // Projected net profit (RM)
-  exitMonths: number;         // Target exit window (months)
-  landSize?: string;          // e.g. "965 acres" (land assets)
-  anchor?: boolean;           // Anchor asset flag
-  status: string;             // e.g. "Title-Verified"
-  details: string;
-  investigatorNotes: string;
+  title: string;
+  count: string;   // e.g. "27+" — rendered with the rolling-number animation
+  blurb: string;
+  iconName: string; // Lucide icon name
 }
 
 export interface Service {
@@ -21,17 +13,6 @@ export interface Service {
   description: string;
   detailedDescription: string;
   checklist: string[];
-}
-
-export interface BlogPost {
-  id: string;
-  title: string;
-  author: string;
-  date: string;       // display date, e.g. "5 July 2026"
-  category: string;
-  excerpt: string;
-  content: string;    // body text; blank lines separate paragraphs
-  readTime?: string;  // e.g. "4 min read"
 }
 
 export interface Inquiry {

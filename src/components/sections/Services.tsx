@@ -47,7 +47,7 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-24 md:py-32 bg-transparent relative overflow-hidden border-y border-black/5">
+    <section id="services" className="py-16 md:py-24 bg-transparent relative overflow-hidden border-y border-black/5">
       <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 xl:px-20">
 
         {/* Header */}
@@ -62,7 +62,7 @@ export default function Services() {
             // Forensic Capabilities
           </span>
           <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-on-surface">
-            Specialized Service Portfolio
+            Specialized <span className="text-tertiary">Service</span> Portfolio
           </h3>
         </motion.div>
 
@@ -79,9 +79,16 @@ export default function Services() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ y: -6 }}
                 onClick={() => setSelectedService(service)}
-                className="glass-surface p-8 lg:p-10 hover:border-tertiary/50 hover:shadow-[0_26px_55px_-26px_rgba(19,41,75,0.35)] transition-shadow duration-300 group cursor-pointer relative flex flex-col justify-between"
+                className="glass-surface p-8 lg:p-10 hover:border-tertiary/50 transition-colors duration-300 group cursor-pointer relative flex flex-col justify-between"
               >
-                <div>
+                {/* Blinking luxury-gold halo behind the card */}
+                <span
+                  aria-hidden="true"
+                  style={{ animationDelay: `${(i % 3) * 0.5 + Math.floor(i / 3) * 0.8}s` }}
+                  className="gold-blink pointer-events-none absolute inset-0"
+                />
+
+                <div className="relative z-[1]">
                   <div className="w-12 h-12 bg-secondary/10 flex items-center justify-center text-secondary border border-secondary/20 mb-6 group-hover:scale-110 group-hover:-rotate-3 group-hover:bg-secondary/15 group-hover:border-secondary/40 transition-all duration-300">
                     <IconComponent className="w-6 h-6 text-secondary" />
                   </div>
@@ -98,7 +105,7 @@ export default function Services() {
                     e.stopPropagation();
                     setSelectedService(service);
                   }}
-                  className="font-mono text-[10px] text-tertiary flex items-center gap-2 uppercase tracking-widest mt-auto font-semibold hover:text-secondary group-hover:translate-x-1 transition-all"
+                  className="relative z-[1] font-mono text-[10px] text-tertiary flex items-center gap-2 uppercase tracking-widest mt-auto font-semibold hover:text-secondary group-hover:translate-x-1 transition-all"
                 >
                   Details <ArrowRight className="w-3.5 h-3.5" />
                 </button>

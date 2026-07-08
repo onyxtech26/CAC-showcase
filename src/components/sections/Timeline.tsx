@@ -108,7 +108,7 @@ export default function Timeline() {
   };
 
   return (
-    <section id="process" className="py-24 md:py-32 bg-transparent border-b border-black/5 relative overflow-hidden">
+    <section id="process" className="py-16 md:py-24 bg-transparent border-b border-black/5 relative overflow-hidden">
       <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 xl:px-20">
 
         {/* Title & Metadata Header */}

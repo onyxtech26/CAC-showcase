@@ -1,18 +1,18 @@
-import { Asset, Service } from '../types';
+import { CompletedProject, Service } from '../types';
 
 export const SERVICES: Service[] = [
   {
-    id: 'valuation-appraisal',
+    id: 'legal-court-matters',
     iconName: 'Scale',
-    title: 'Property Valuation & Appraisal',
-    description: 'Independent market valuation of residential and land assets, benchmarked against verified comparables and transaction evidence.',
-    detailedDescription: 'We establish defensible, evidence-led market value for residential and land assets across Johor and Kedah. Every appraisal is benchmarked against verified comparables and real transaction evidence, giving owners, investors and financiers an objective basis for decision-making.',
+    title: 'Legal Court Matters',
+    description: 'Court-ready forensic evidence, valuation support and case management for property, estate and inheritance proceedings.',
+    detailedDescription: 'We support clients and counsel through property-related court matters — from Letters of Administration (LA) and Probate applications to contested land, boundary and inheritance proceedings. Every submission is backed by court-admissible forensic evidence and defensible valuation findings.',
     checklist: [
-      'Independent market valuation of residential and land assets',
-      'Benchmarking against verified comparables & transaction evidence',
-      'Defensible valuation basis for acquisition and financing',
-      'Physical and desktop appraisal methodologies',
-      'Clear, documented valuation rationale'
+      'Court-admissible forensic and valuation reports',
+      'Letters of Administration (LA) & Probate application support',
+      'Evidence preparation for land and inheritance disputes',
+      'Liaison with lawyers and counsel through proceedings',
+      'Post-judgment execution, transfer and registration support'
     ]
   },
   {
@@ -58,17 +58,17 @@ export const SERVICES: Service[] = [
     ]
   },
   {
-    id: 'due-diligence',
+    id: 'estate-jkptg',
     iconName: 'FileSignature',
-    title: 'Due Diligence & Title Verification',
-    description: 'Clean-title confirmation and risk screening on every asset before acquisition.',
-    detailedDescription: 'Before any capital is committed, every asset is independently valued and title-verified. We confirm clean title, screen for risk, and ensure each acquisition is held under first legal charge — compressing downside for our partners.',
+    title: 'Big & Small Estate (JKPTG)',
+    description: 'End-to-end administration of big and small estate claims through JKPTG and the courts — from petition to final distribution.',
+    detailedDescription: 'We manage estate matters end-to-end: small estate petitions through JKPTG (Department of Director General of Lands and Mines), Letters of Administration and Probate for larger estates, verification of assets and heirs, and carrying distribution orders through to registered transfer.',
     checklist: [
-      'Clean-title confirmation on every asset',
-      'Independent valuation prior to acquisition',
-      'Risk screening for encumbrances and disputes',
-      'First legal charge over acquired assets',
-      'Documentation ready for financing partners'
+      'Small estate petitions and hearings via JKPTG',
+      'Letters of Administration (LA) & Probate for larger estates',
+      'Asset and heir verification with official title searches',
+      'Distribution order applications and follow-through',
+      'Transfer and registration of inherited assets to heirs'
     ]
   },
   {
@@ -87,89 +87,53 @@ export const SERVICES: Service[] = [
   }
 ];
 
-// Live acquisition pipeline — six projects targeted for resolution within the
-// six-month facility window. Figures are indicative, subject to final valuation
-// and due diligence. (Source: CAC Investment Portfolio, 2026 edition.)
-export const ASSETS: Asset[] = [
+// Completed engagement track record, shown in the "Completed Projects" section.
+export const COMPLETED_PROJECTS: CompletedProject[] = [
   {
-    id: 'ast-kota-tinggi',
-    name: 'Kota Tinggi House',
-    location: 'Kota Tinggi, Johor',
-    type: 'Subsale',
-    acquisition: 500000,
-    projectedResale: 625000,
-    projectedNetProfit: 125000,
-    exitMonths: 2,
-    status: 'Title-Verified',
-    details: 'A below-market subsale home targeted for a fast refurbish-and-resale cycle. As the quickest-exit asset in the pipeline, it is prioritised first for deployment.',
-    investigatorNotes: 'Independently valued and title-verified before acquisition. Figures indicative, subject to final valuation and due diligence.'
+    id: 'cp-la',
+    title: 'Letter of Administration (LA)',
+    count: '27+',
+    blurb: 'Letters of Administration secured and executed for estates without a will.',
+    iconName: 'FileText'
   },
   {
-    id: 'ast-sri-skudai',
-    name: 'Sri Skudai House',
-    location: 'Skudai, Johor',
-    type: 'Subsale',
-    acquisition: 400000,
-    projectedResale: 515000,
-    projectedNetProfit: 115000,
-    exitMonths: 3,
-    status: 'Title-Verified',
-    details: 'A below-market subsale home in the established Skudai corridor, secured for light refurbishment and a profitable resale within a three-month window.',
-    investigatorNotes: 'Independently valued and title-verified before acquisition. Figures indicative, subject to final valuation and due diligence.'
+    id: 'cp-probate',
+    title: 'Probate',
+    count: '30+',
+    blurb: 'Grants of Probate obtained and carried through the High Court.',
+    iconName: 'ScrollText'
   },
   {
-    id: 'ast-pontian',
-    name: 'Pontian Land',
-    location: 'Pontian, Johor',
-    type: 'Land',
-    acquisition: 550000,
-    projectedResale: 930000,
-    projectedNetProfit: 380000,
-    exitMonths: 5,
-    landSize: '68 acres',
-    status: 'Title-Verified',
-    details: 'A 68-acre land parcel acquired at a discount and repositioned for conversion or onward sale — a higher-upside land play within the pipeline.',
-    investigatorNotes: 'Independently valued and title-verified before acquisition. Figures indicative, subject to final valuation and due diligence.'
+    id: 'cp-subsale',
+    title: 'Subsale (House & Land)',
+    count: '50+',
+    blurb: 'Subsale house and land transactions resolved end-to-end.',
+    iconName: 'Home'
   },
   {
-    id: 'ast-paloh',
-    name: 'Paloh Land',
-    location: 'Paloh, Johor',
-    type: 'Land',
-    acquisition: 1000000,
-    projectedResale: 1650000,
-    projectedNetProfit: 650000,
-    exitMonths: 6,
-    landSize: '965 acres',
-    anchor: true,
-    status: 'Title-Verified',
-    details: 'The anchor asset of the portfolio: a 965-acre land parcel acquired at a significant discount, held and repositioned for conversion or onward sale within the six-month facility window.',
-    investigatorNotes: 'Independently valued and title-verified before acquisition. Anchor land holding. Figures indicative, subject to final valuation and due diligence.'
+    id: 'cp-abundant',
+    title: 'Abundant',
+    count: '40+',
+    blurb: 'Complex recovery and resolution engagements carried to completion.',
+    iconName: 'Layers'
   },
   {
-    id: 'ast-skudai-land',
-    name: 'Skudai Land',
-    location: 'Skudai, Johor',
-    type: 'Land',
-    acquisition: 330000,
-    projectedResale: 470000,
-    projectedNetProfit: 140000,
-    exitMonths: 4,
-    status: 'Title-Verified',
-    details: 'A compact land parcel in Skudai acquired below market and repositioned for onward sale within a four-month horizon.',
-    investigatorNotes: 'Independently valued and title-verified before acquisition. Figures indicative, subject to final valuation and due diligence.'
+    id: 'cp-forensic',
+    title: 'Forensic',
+    count: '50+',
+    blurb: 'Deep-dive title and valuation investigations closed with findings.',
+    iconName: 'Fingerprint'
   },
   {
-    id: 'ast-kedah',
-    name: 'Kedah House',
-    location: 'Kedah',
-    type: 'Subsale',
-    acquisition: 380000,
-    projectedResale: 470000,
-    projectedNetProfit: 90000,
-    exitMonths: 3,
-    status: 'Title-Verified',
-    details: 'A subsale home extending the pipeline into the northern Kedah market, secured for a disciplined resale within three months.',
-    investigatorNotes: 'Independently valued and title-verified before acquisition. Figures indicative, subject to final valuation and due diligence.'
+    id: 'cp-consent',
+    title: 'Consent',
+    count: '35+',
+    blurb: 'State-authority consent applications approved and registered.',
+    iconName: 'Handshake'
   }
 ];
+
+export const CASE_STATS = {
+  totalCompleted: '227',
+  activeCases: '30+'
+};

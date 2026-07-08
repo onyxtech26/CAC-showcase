@@ -25,9 +25,9 @@ export default function Hero({ onBookConsultation, onViewOutlook }: HeroProps) {
     <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-screen flex items-center pt-[64px] overflow-hidden bg-transparent"
+      className="relative min-h-[88svh] flex items-center pt-[88px] overflow-hidden bg-transparent"
     >
-      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 xl:px-20 grid grid-cols-1 md:grid-cols-2 gap-12 xl:gap-20 items-center py-16">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 xl:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 xl:gap-16 items-center py-10 md:py-12">
 
         {/* Left column text & CTA */}
         <motion.div
@@ -92,7 +92,7 @@ export default function Hero({ onBookConsultation, onViewOutlook }: HeroProps) {
               whileTap={{ scale: 0.97 }}
               className="btn-premium w-full sm:w-auto border border-secondary/30 text-secondary hover:border-secondary hover:bg-secondary/5 px-8 py-4 font-mono text-xs uppercase font-semibold tracking-wider"
             >
-              View Investment Outlook
+              View Completed Projects
             </motion.button>
           </div>
         </motion.div>

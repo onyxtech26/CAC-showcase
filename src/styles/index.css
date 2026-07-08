@@ -52,6 +52,12 @@
   100% { top: 100%; opacity: 0; }
 }
 
+/* Soft breathing glow for futuristic accents. */
+@keyframes neon-pulse {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
+}
+
 @utility glass-surface {
   background: rgba(255, 255, 255, 0.45);
   backdrop-filter: blur(20px) saturate(140%);
@@ -97,6 +103,143 @@
 
 @utility fingerprint-bg {
   background-image: radial-gradient(circle at 50% 50%, rgba(19, 41, 75, 0.02) 0%, transparent 70%);
+}
+
+/* ---------- Futuristic / neon kit ---------- */
+
+@keyframes neon-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Dark card with a rotating neon "border beam" (gold + cyan) and hover glow. */
+@utility neon-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  background: rgba(10, 22, 48, 0.9);
+  transition: box-shadow 0.4s ease;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -160%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg 292deg,
+      rgba(56, 189, 248, 0.9) 322deg,
+      rgba(202, 138, 4, 0.95) 341deg,
+      transparent 360deg
+    );
+    animation: neon-spin 5.5s linear infinite;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 1.5px;
+    border-radius: 12.5px;
+    background: linear-gradient(155deg, #0b1a38 0%, #081226 55%, #0c1f42 100%);
+    z-index: 1;
+  }
+  &:hover {
+    box-shadow:
+      0 0 34px -8px rgba(56, 189, 248, 0.45),
+      0 18px 50px -18px rgba(202, 138, 4, 0.4);
+  }
+}
+
+/* A single gold light that travels clockwise around the navbar pill border.
+   One rotating conic-gradient comet, masked to a 2px ring. @property lets the
+   angle animate smoothly. */
+@property --neon-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes neon-orbit {
+  to { --neon-angle: 360deg; }
+}
+
+@utility neon-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  padding: 2px;
+  pointer-events: none;
+  background: conic-gradient(
+    from var(--neon-angle),
+    transparent 0% 66%,
+    rgba(202, 138, 4, 0.15) 72%,
+    rgba(202, 138, 4, 0.9) 84%,
+    #fde68a 91%,
+    rgba(202, 138, 4, 0.9) 96%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  filter: drop-shadow(0 0 5px rgba(202, 138, 4, 0.75));
+  animation: neon-orbit 5s linear infinite;
+}
+
+/* Soft neon glow for big stat numbers on dark panels. */
+@utility neon-number {
+  text-shadow:
+    0 0 18px rgba(202, 138, 4, 0.45),
+    0 0 40px rgba(56, 189, 248, 0.25);
+}
+
+/* Blinking navy-blue neon glow for glassmorphism cards. */
+@keyframes navy-glow-blink {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1px rgba(30, 58, 138, 0.14),
+      0 0 14px -5px rgba(30, 58, 138, 0.20),
+      0 12px 34px -16px rgba(19, 41, 75, 0.16);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(46, 84, 210, 0.42),
+      0 0 22px -4px rgba(46, 84, 210, 0.50),
+      0 12px 34px -14px rgba(19, 41, 75, 0.24);
+  }
+}
+
+/* Frosted glass card with a pulsing navy neon halo. */
+@utility glass-neon {
+  position: relative;
+  background: rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 16px;
+  animation: navy-glow-blink 2.8s ease-in-out infinite;
+}
+
+/* Soft navy neon glow for numbers on light glass. */
+@utility neon-number-navy {
+  text-shadow:
+    0 0 16px rgba(30, 58, 138, 0.30),
+    0 0 34px rgba(46, 84, 210, 0.18);
+}
+
+/* Blinking luxury-gold neon halo, sits behind a card. */
+@keyframes gold-glow-blink {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1px rgba(202, 138, 4, 0.10),
+      0 0 14px -4px rgba(202, 138, 4, 0.22);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(202, 138, 4, 0.32),
+      0 0 26px -2px rgba(202, 138, 4, 0.48);
+  }
+}
+
+@utility gold-blink {
+  border-radius: inherit;
+  animation: gold-glow-blink 2.6s ease-in-out infinite;
 }
 
 /* Premium button: subtle lift + light-sweep shine on hover, press feedback. */

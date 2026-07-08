@@ -1,8 +1,8 @@
 /**
  * Ref-counted body scroll lock.
  *
- * Multiple overlays can be open at once (e.g. the blog panel with a reader
- * modal on top). A simple `body.style.overflow = ''` on close would unlock
+ * Multiple overlays can be open at once (e.g. a service detail modal on top of
+ * another overlay). A simple `body.style.overflow = ''` on close would unlock
  * the page while another overlay is still open, so we count active locks and
  * only restore scrolling when the last one releases.
  */

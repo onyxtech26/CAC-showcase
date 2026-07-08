@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, Mail, Phone, MessageSquare, Loader2, CheckCircle2, AlertTriangle } from 'lucide-react';
 import { Inquiry } from '../../types';
+import { whatsappLink } from '../../lib/contact';
 
 interface ContactProps {
   onInquirySubmitted: () => void;
@@ -19,23 +20,37 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
   const [issuedTrackingCode, setIssuedTrackingCode] = useState('');
 
   const servicesList = [
-    'Property Valuation & Appraisal',
+    'Legal Court Matters',
     'Property Forensic Consultation',
     'Subsale Acquisition & Flips',
     'Land Banking & Development',
-    'Due Diligence & Title Verification',
+    'Big & Small Estate (JKPTG)',
     'Market & Investment Advisory'
   ];
 
   const handleWhatsApp = () => {
     // Standard WhatsApp API link redirect
-    const message = encodeURIComponent("Hello CAC, I would like to schedule a forensic consultation regarding real estate matters.");
-    window.open(`https://wa.me/60183777716?text=${message}`, '_blank');
+    window.open(whatsappLink(), '_blank');
   };
 
   // Company lead inbox (FormSubmit delivers the form to this address by email).
   const LEAD_EMAIL = 'conglomerateac@gmail.com';
   const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+  // Fallback: open the visitor's email client with the inquiry pre-filled,
+  // so a lead is never lost if the automated delivery is unavailable.
+  const emailInquiryDirectly = () => {
+    const subject = `Website Inquiry — ${service} — ${fullName || 'New Lead'}`;
+    const body =
+      `Full Name: ${fullName}\n` +
+      `Email: ${email}\n` +
+      `Phone: ${phoneNumber}\n` +
+      `Service Required: ${service}\n\n` +
+      `Brief Inquiry:\n${briefInquiry}\n`;
+    window.location.href = `mailto:${LEAD_EMAIL}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,7 +63,7 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
     setSubmissionStage('hashing');
 
     try {
-      // Send the lead to the company inbox (and cc the office) by email.
+      // Send the lead to the company inbox by email.
       const res = await fetch(`https://formsubmit.co/ajax/${LEAD_EMAIL}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
@@ -56,7 +71,6 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
           _subject: `New Website Lead — ${service} — ${fullName}`,
           _template: 'table',
           _captcha: 'false',
-          _cc: 'admin@cac.com.my',
           _replyto: email,
           'Tracking Code': trackingCode,
           'Full Name': fullName,
@@ -109,7 +123,7 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-transparent border-b border-black/5 relative overflow-hidden">
+    <section id="contact" className="py-16 md:py-24 bg-transparent border-b border-black/5 relative overflow-hidden">
       <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 xl:px-20 grid grid-cols-1 md:grid-cols-2 gap-16 xl:gap-24">
 
         {/* Left Side: Investigator Info Card */}
@@ -139,9 +153,7 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
               <div className="w-20 h-20 rounded-full border-2 border-secondary p-1 overflow-hidden bg-surface-container flex-shrink-0 transition-all duration-300 hover:scale-105 hover:border-tertiary hover:shadow-lg hover:shadow-tertiary/20">
                 <div
                   className="w-full h-full rounded-full bg-cover bg-center"
-                  style={{
-                    backgroundImage: `url('https://lh3.googleusercontent.com/aida-public/AB6AXuBGxax-H32Oqj0P49IpMtY_oqV37yRFHUWSy1J60h5FzHQt8RwBqUb-y8MTTsVmBYK2WMIdaj_LvxNBVN48t77GMMRttLhohkN4ABE46o7h7iA1_wNU0r66BdTfp4g-qw-E0Od6f0vMl4MxCApvDZ8mX8dY66fmQePYvQrByX5-FXxsiAI8geK3QE5Y_KifhZYaGaaGv6aTOrIQvGz09E9XbepsTsKcgbVkSyNJEKLjbltCLMRoBz2LoNZIe8SXoakKgKStcQ6atkc')`
-                  }}
+                  style={{ backgroundImage: `url('/cac.png')` }}
                 />
               </div>
               <div>
@@ -155,11 +167,11 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
             <div className="space-y-4 font-mono text-xs text-on-surface-variant">
               <div className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-secondary flex-shrink-0" />
-                <span>Coverage: Johor &amp; Kedah, Malaysia</span>
+                <span>Coverage: Johor &amp; All of Malaysia</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-secondary flex-shrink-0" />
-                <span>admin@cac.com.my</span>
+                <span>conglomerateac@gmail.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-secondary flex-shrink-0" />
@@ -274,14 +286,23 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
                         </h4>
                       </div>
                       <p className="font-sans text-xs text-on-surface-variant font-light max-w-sm leading-relaxed mx-auto">
-                        We couldn't send your inquiry just now. Please try again, or reach us directly on WhatsApp or at conglomerateac@gmail.com.
+                        We couldn't send your inquiry automatically just now. You can email it to us
+                        directly — your details are already filled in — or try again.
                       </p>
-                      <button
-                        onClick={() => setSubmissionStage('idle')}
-                        className="font-mono text-[10px] text-secondary hover:text-on-surface uppercase border border-secondary/20 bg-secondary/5 hover:bg-secondary/10 px-4 py-2 tracking-widest font-bold"
-                      >
-                        Try Again
-                      </button>
+                      <div className="flex flex-wrap items-center justify-center gap-3">
+                        <button
+                          onClick={emailInquiryDirectly}
+                          className="font-mono text-[10px] text-white uppercase bg-secondary hover:bg-tertiary px-4 py-2 tracking-widest font-bold transition-colors"
+                        >
+                          Email Us Directly
+                        </button>
+                        <button
+                          onClick={() => setSubmissionStage('idle')}
+                          className="font-mono text-[10px] text-secondary hover:text-on-surface uppercase border border-secondary/20 bg-secondary/5 hover:bg-secondary/10 px-4 py-2 tracking-widest font-bold"
+                        >
+                          Try Again
+                        </button>
+                      </div>
                     </motion.div>
                   )}
                 </motion.div>

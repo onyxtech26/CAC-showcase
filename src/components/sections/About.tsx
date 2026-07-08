@@ -14,7 +14,7 @@ export default function About() {
   const imageY = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
   return (
-    <section ref={sectionRef} id="about" className="py-24 md:py-32 relative liquid-glass overflow-hidden">
+    <section ref={sectionRef} id="about" className="py-16 md:py-24 relative liquid-glass overflow-hidden">
       {/* Background radial glow */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-secondary/5 blur-[120px] pointer-events-none" />
 
@@ -46,7 +46,7 @@ export default function About() {
 
           <div className="space-y-4 font-sans text-on-surface-variant text-sm sm:text-base font-light leading-relaxed">
             <p>
-              Established in 2024, Conglomerate Appraisal Consultancy (CAC) is a Malaysian property appraisal and forensic consultancy specialising in the valuation, due diligence and strategic acquisition of residential and land assets across Johor and Kedah.
+              Established in 2024, Conglomerate Appraisal Consultancy (CAC) is a Malaysian property appraisal and forensic consultancy specialising in the valuation, due diligence and strategic acquisition of residential and land assets across Johor &amp; All of Malaysia.
             </p>
             <p>
               We combine rigorous, evidence-led appraisal — our property forensic discipline — with hands-on acquisition execution. Every deal we underwrite is supported by independent valuation, title verification and a defensible exit thesis.

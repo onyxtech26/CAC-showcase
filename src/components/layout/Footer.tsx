@@ -8,13 +8,9 @@ export default function Footer() {
     { name: 'Legal Framework', href: '#about' },
   ];
 
-  const locations = [
-    'Johor (HQ)'
-  ];
-
   const contacts = [
     '+6018-377 7716',
-    'admin@cac.com.my',
+    'conglomerateac@gmail.com',
     'www.cac.com.my'
   ];
 
@@ -105,7 +101,7 @@ export default function Footer() {
             </span>
           </div>
           <p className="font-sans text-xs text-on-surface-variant max-w-xs leading-relaxed font-light">
-            Conglomerate Appraisal Consultancy — property appraisal, forensic due diligence and strategic acquisition of subsale and land assets across Johor &amp; Kedah, Malaysia.
+            Conglomerate Appraisal Consultancy — property appraisal, forensic due diligence and strategic acquisition of subsale and land assets across Johor &amp; All of Malaysia.
           </p>
         </div>
 
@@ -129,9 +125,14 @@ export default function Footer() {
           <div className="space-y-4">
             <p className="font-mono text-[10px] text-secondary uppercase tracking-widest font-semibold">Locations</p>
             <ul className="space-y-2 font-sans text-xs text-on-surface-variant/80 font-light">
-              {locations.map((loc, idx) => (
-                <li key={idx}>{loc}</li>
-              ))}
+              <li>
+                <span className="block font-medium text-on-surface/90">Johor (HQ)</span>
+                <span className="block leading-relaxed mt-1">
+                  85-01, Jalan Wira 2,<br />
+                  Taman Tan Sri Yaacob,<br />
+                  81300 Skudai, Johor
+                </span>
+              </li>
             </ul>
           </div>
 
