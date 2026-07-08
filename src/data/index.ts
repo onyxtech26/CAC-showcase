@@ -112,7 +112,7 @@ export const COMPLETED_PROJECTS: CompletedProject[] = [
   },
   {
     id: 'cp-abundant',
-    title: 'Abundant',
+    title: 'Abandoned',
     count: '40+',
     blurb: 'Complex recovery and resolution engagements carried to completion.',
     iconName: 'Layers'
@@ -126,7 +126,7 @@ export const COMPLETED_PROJECTS: CompletedProject[] = [
   },
   {
     id: 'cp-consent',
-    title: 'Consent',
+    title: 'Consent / Bumi Consent',
     count: '35+',
     blurb: 'State-authority consent applications approved and registered.',
     iconName: 'Handshake'

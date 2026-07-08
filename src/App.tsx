@@ -25,13 +25,6 @@ export default function App() {
     setIsInquiryLogOpen(true);
   };
 
-  const handleViewProjects = () => {
-    const el = document.getElementById('projects');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const handleInquirySubmitted = () => {
     // We can show optional confirmation or trigger modal refreshes
   };
@@ -45,10 +38,7 @@ export default function App() {
       <Navbar onOpenInquiryLog={handleOpenInquiryLog} />
 
       {/* Hero Section with animated property graphic */}
-      <Hero
-        onBookConsultation={handleBookConsultation}
-        onViewOutlook={handleViewProjects}
-      />
+      <Hero onBookConsultation={handleBookConsultation} />
 
       {/* Firm Overview Section */}
       <About />

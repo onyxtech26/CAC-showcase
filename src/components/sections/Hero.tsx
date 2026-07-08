@@ -6,10 +6,9 @@ import propertyLottie from '../../assets/property.lottie?url';
 
 interface HeroProps {
   onBookConsultation: () => void;
-  onViewOutlook: () => void;
 }
 
-export default function Hero({ onBookConsultation, onViewOutlook }: HeroProps) {
+export default function Hero({ onBookConsultation }: HeroProps) {
   const sectionRef = useRef<HTMLElement | null>(null);
 
   // Scroll-linked parallax: image drifts up, text drifts gently, both fade.
@@ -85,14 +84,7 @@ export default function Hero({ onBookConsultation, onViewOutlook }: HeroProps) {
               whileTap={{ scale: 0.97 }}
               className="btn-premium w-full sm:w-auto bg-secondary text-white px-8 py-4 font-mono text-xs uppercase font-semibold tracking-wider hover:bg-tertiary border border-secondary hover:border-tertiary shadow-lg hover:shadow-tertiary/25"
             >
-              Book a Consultation
-            </motion.button>
-            <motion.button
-              onClick={onViewOutlook}
-              whileTap={{ scale: 0.97 }}
-              className="btn-premium w-full sm:w-auto border border-secondary/30 text-secondary hover:border-secondary hover:bg-secondary/5 px-8 py-4 font-mono text-xs uppercase font-semibold tracking-wider"
-            >
-              View Completed Projects
+              Contact Us
             </motion.button>
           </div>
         </motion.div>

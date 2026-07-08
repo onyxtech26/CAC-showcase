@@ -97,7 +97,7 @@ export default function Footer() {
             </span>
             <span className="h-4 w-[1px] bg-black/20"></span>
             <span className="font-mono text-[9px] tracking-[0.2em] text-on-surface-variant/60 uppercase">
-              Est. 2024
+              Est. 2009
             </span>
           </div>
           <p className="font-sans text-xs text-on-surface-variant max-w-xs leading-relaxed font-light">

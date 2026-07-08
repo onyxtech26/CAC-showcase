@@ -46,7 +46,7 @@ export default function About() {
 
           <div className="space-y-4 font-sans text-on-surface-variant text-sm sm:text-base font-light leading-relaxed">
             <p>
-              Established in 2024, Conglomerate Appraisal Consultancy (CAC) is a Malaysian property appraisal and forensic consultancy specialising in the valuation, due diligence and strategic acquisition of residential and land assets across Johor &amp; All of Malaysia.
+              Established in 2009 and incorporated in 2020, Conglomerate Appraisal Consultancy (CAC) is a Malaysian property appraisal and forensic consultancy specialising in the valuation, due diligence and strategic acquisition of residential and land assets across Johor &amp; All of Malaysia.
             </p>
             <p>
               We combine rigorous, evidence-led appraisal — our property forensic discipline — with hands-on acquisition execution. Every deal we underwrite is supported by independent valuation, title verification and a defensible exit thesis.
