@@ -56,12 +56,12 @@ export default function PremiumBackground() {
         xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          {/* Base steel-blue gradient so it clearly reads as "designed" */}
+          {/* Base warm-ivory gradient so it clearly reads as "designed" */}
           <linearGradient id="pb-base" x1="0" y1="0" x2="0.5" y2="1">
-            <stop offset="0%" stopColor="#f6f8fc" />
-            <stop offset="38%" stopColor="#e9eef6" />
-            <stop offset="72%" stopColor="#dbe3ef" />
-            <stop offset="100%" stopColor="#ccd7e8" />
+            <stop offset="0%" stopColor="#ffffff" />
+            <stop offset="38%" stopColor="#fbf9f4" />
+            <stop offset="72%" stopColor="#f5f2ea" />
+            <stop offset="100%" stopColor="#efebe0" />
           </linearGradient>
           {/* Premium film grain for tactile depth */}
           <filter id="pb-grain" x="0" y="0" width="100%" height="100%">
@@ -71,32 +71,32 @@ export default function PremiumBackground() {
           {/* Vignette for cinematic depth at the edges */}
           <radialGradient id="pb-vignette" cx="50%" cy="46%" r="75%">
             <stop offset="55%" stopColor="#13294b" stopOpacity="0" />
-            <stop offset="100%" stopColor="#0b1830" stopOpacity="0.16" />
+            <stop offset="100%" stopColor="#0b1830" stopOpacity="0.10" />
           </radialGradient>
           {/* Fine technical grid */}
           <pattern id="pb-grid" width="44" height="44" patternUnits="userSpaceOnUse">
-            <path d="M 44 0 L 0 0 0 44" fill="none" stroke="#13294b" strokeWidth="1" strokeOpacity="0.08" />
+            <path d="M 44 0 L 0 0 0 44" fill="none" stroke="#13294b" strokeWidth="1" strokeOpacity="0.055" />
           </pattern>
           {/* Coarse survey grid */}
           <pattern id="pb-grid-lg" width="220" height="220" patternUnits="userSpaceOnUse">
-            <path d="M 220 0 L 0 0 0 220" fill="none" stroke="#13294b" strokeWidth="1.4" strokeOpacity="0.14" />
+            <path d="M 220 0 L 0 0 0 220" fill="none" stroke="#13294b" strokeWidth="1.4" strokeOpacity="0.09" />
           </pattern>
-          {/* Ambient light glows */}
+          {/* Ambient light washes */}
           <radialGradient id="pb-navy-tl" cx="12%" cy="0%" r="60%">
-            <stop offset="0%" stopColor="#13294b" stopOpacity="0.22" />
+            <stop offset="0%" stopColor="#13294b" stopOpacity="0.08" />
             <stop offset="100%" stopColor="#13294b" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="pb-gold-tr" cx="100%" cy="4%" r="55%">
-            <stop offset="0%" stopColor="#ca8a04" stopOpacity="0.18" />
-            <stop offset="100%" stopColor="#ca8a04" stopOpacity="0" />
+            <stop offset="0%" stopColor="#a8791f" stopOpacity="0.09" />
+            <stop offset="100%" stopColor="#a8791f" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="pb-navy-b" cx="50%" cy="115%" r="60%">
-            <stop offset="0%" stopColor="#13294b" stopOpacity="0.18" />
+            <stop offset="0%" stopColor="#13294b" stopOpacity="0.07" />
             <stop offset="100%" stopColor="#13294b" stopOpacity="0" />
           </radialGradient>
           {/* Centre focal lift for readability */}
           <radialGradient id="pb-focus" cx="42%" cy="44%" r="55%">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.65" />
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.55" />
             <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
           </radialGradient>
         </defs>
@@ -107,40 +107,40 @@ export default function PremiumBackground() {
         <rect width={VW} height={VH} fill="url(#pb-grid-lg)" />
 
         {/* Topographic contour lines */}
-        <g fill="none" stroke="#13294b" strokeWidth="1.25" strokeOpacity="0.12">
+        <g fill="none" stroke="#13294b" strokeWidth="1.25" strokeOpacity="0.07">
           {contours.map((d, i) => (
             <path key={i} d={d} />
           ))}
         </g>
         {/* Gold accent contours for warmth */}
-        <g fill="none" stroke="#ca8a04" strokeWidth="1.4" strokeOpacity="0.16">
+        <g fill="none" stroke="#a8791f" strokeWidth="1.4" strokeOpacity="0.10">
           <path d={contours[7]} />
           <path d={contours[13]} />
         </g>
 
         {/* Concentric survey rings + crosshair (echoes the lens motif) */}
-        <g fill="none" stroke="#13294b" strokeOpacity="0.16" strokeWidth="1.25">
+        <g fill="none" stroke="#13294b" strokeOpacity="0.12" strokeWidth="1.25">
           {[80, 170, 275, 400].map((r) => (
             <circle key={r} cx={ringCx} cy={ringCy} r={r} />
           ))}
         </g>
-        <line x1={ringCx - 440} y1={ringCy} x2={ringCx + 440} y2={ringCy} stroke="#13294b" strokeWidth="1" strokeOpacity="0.12" />
-        <line x1={ringCx} y1={ringCy - 440} x2={ringCx} y2={ringCy + 440} stroke="#13294b" strokeWidth="1" strokeOpacity="0.12" />
-        <circle cx={ringCx} cy={ringCy} r="6" fill="#ca8a04" fillOpacity="0.6" />
+        <line x1={ringCx - 440} y1={ringCy} x2={ringCx + 440} y2={ringCy} stroke="#13294b" strokeWidth="1" strokeOpacity="0.10" />
+        <line x1={ringCx} y1={ringCy - 440} x2={ringCx} y2={ringCy + 440} stroke="#13294b" strokeWidth="1" strokeOpacity="0.10" />
+        <circle cx={ringCx} cy={ringCy} r="6" fill="#a8791f" fillOpacity="0.6" />
 
         {/* Centre focal wash to keep content readable */}
         <rect width={VW} height={VH} fill="url(#pb-focus)" />
 
-        {/* Ambient glows on top so the colour clearly shows */}
+        {/* Ambient washes on top so the colour clearly shows */}
         <rect width={VW} height={VH} fill="url(#pb-navy-tl)" />
         <rect width={VW} height={VH} fill="url(#pb-gold-tr)" />
         <rect width={VW} height={VH} fill="url(#pb-navy-b)" />
 
         {/* Film grain (very subtle) for premium tactile texture */}
-        <rect width={VW} height={VH} filter="url(#pb-grain)" opacity="0.04" />
+        <rect width={VW} height={VH} filter="url(#pb-grain)" opacity="0.025" />
 
         {/* Corner registration marks + coordinate labels */}
-        <g stroke="#13294b" strokeOpacity="0.4" strokeWidth="1.4">
+        <g stroke="#13294b" strokeOpacity="0.30" strokeWidth="1.4">
           {corners.map((c, i) => {
             const sx = c.anchor === 'end' ? -1 : 1;
             const sy = c.y > VH / 2 ? -1 : 1;
@@ -153,8 +153,8 @@ export default function PremiumBackground() {
           })}
         </g>
         <g
-          fill="#13294b"
-          fillOpacity="0.45"
+          fill="#5c6472"
+          fillOpacity="0.55"
           fontFamily="'Space Mono', monospace"
           fontSize="12"
           letterSpacing="1.5"

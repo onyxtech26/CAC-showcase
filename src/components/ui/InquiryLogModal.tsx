@@ -90,7 +90,7 @@ export default function InquiryLogModal({ isOpen, onClose }: InquiryLogModalProp
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/20 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
           />
 
           {/* Modal Box */}
@@ -99,10 +99,10 @@ export default function InquiryLogModal({ isOpen, onClose }: InquiryLogModalProp
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
             transition={{ type: 'spring', damping: 25 }}
-            className="relative w-full max-w-4xl h-[90vh] md:h-[80vh] bg-white/95 backdrop-blur-2xl border border-black/10 overflow-hidden z-10 flex flex-col shadow-2xl"
+            className="relative w-full max-w-4xl h-[90vh] md:h-[80vh] bg-surface/98 backdrop-blur-2xl border border-secondary/10 overflow-hidden z-10 flex flex-col shadow-2xl"
           >
             {/* Header */}
-            <div className="p-6 border-b border-black/10 flex justify-between items-center bg-black/[0.01]">
+            <div className="p-6 border-b border-secondary/10 flex justify-between items-center bg-secondary/[0.03]">
               <div className="flex items-center gap-2.5">
                 <ShieldAlert className="w-5 h-5 text-secondary" />
                 <div>
@@ -117,7 +117,7 @@ export default function InquiryLogModal({ isOpen, onClose }: InquiryLogModalProp
 
               <button
                 onClick={onClose}
-                className="p-1.5 border border-black/10 bg-black/5 hover:border-black/20 text-on-surface-variant hover:text-on-surface transition-all cursor-pointer"
+                className="p-1.5 border border-secondary/10 bg-secondary/5 hover:border-secondary/20 text-on-surface-variant hover:text-on-surface transition-all cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -127,15 +127,15 @@ export default function InquiryLogModal({ isOpen, onClose }: InquiryLogModalProp
             <div className="flex-1 flex flex-col md:flex-row overflow-hidden bg-transparent">
 
               {/* Left Column: List of submissions */}
-              <div className="w-full md:w-80 border-r border-black/5 flex flex-col bg-black/[0.01] overflow-y-auto">
-                <div className="p-4 border-b border-black/5">
+              <div className="w-full md:w-80 border-r border-secondary/5 flex flex-col bg-secondary/[0.02] overflow-y-auto">
+                <div className="p-4 border-b border-secondary/5">
                   <form onSubmit={handleSearch} className="relative">
                     <input
                       type="text"
                       placeholder="Enter Tracking ID..."
                       value={searchCode}
                       onChange={(e) => setSearchCode(e.target.value)}
-                      className="w-full bg-black/[0.03] border border-black/10 px-3.5 py-2 pr-9 font-mono text-[10px] uppercase text-on-surface placeholder:text-on-surface-variant/50 outline-none focus:border-secondary"
+                      className="w-full bg-white/60 border border-secondary/10 px-3.5 py-2 pr-9 font-mono text-[10px] uppercase text-on-surface placeholder:text-on-surface-variant/50 outline-none focus:border-secondary"
                     />
                     <button type="submit" className="absolute right-2.5 top-2.5 text-on-surface-variant hover:text-secondary cursor-pointer">
                       <Search className="w-3.5 h-3.5" />
@@ -152,14 +152,14 @@ export default function InquiryLogModal({ isOpen, onClose }: InquiryLogModalProp
                     </p>
                   </div>
                 ) : (
-                  <div className="flex-1 divide-y divide-black/5">
+                  <div className="flex-1 divide-y divide-secondary/5">
                     {inquiries.map((inq) => {
                       const isActive = activeInquiry?.id === inq.id;
                       return (
                         <div
                           key={inq.id}
                           onClick={() => setActiveInquiry(inq)}
-                          className={`p-4 cursor-pointer text-left transition-colors ${isActive ? 'bg-secondary/10 border-l-2 border-secondary' : 'hover:bg-black/[0.03]'
+                          className={`p-4 cursor-pointer text-left transition-colors ${isActive ? 'bg-secondary/10 border-l-2 border-secondary' : 'hover:bg-secondary/[0.03]'
                             }`}
                         >
                           <div className="flex justify-between items-center mb-1">
@@ -192,7 +192,7 @@ export default function InquiryLogModal({ isOpen, onClose }: InquiryLogModalProp
                 {activeInquiry ? (
                   <div className="space-y-6">
                     {/* Header summary info */}
-                    <div className="border-b border-black/5 pb-4">
+                    <div className="border-b border-secondary/5 pb-4">
                       <div className="flex justify-between items-start gap-4">
                         <div>
                           <span className="font-mono text-[9px] text-secondary tracking-widest block mb-1">
@@ -210,7 +210,7 @@ export default function InquiryLogModal({ isOpen, onClose }: InquiryLogModalProp
                     </div>
 
                     {/* Inquiry brief overview */}
-                    <div className="bg-black/[0.02] p-4 border border-black/5 rounded-none font-sans text-xs space-y-2">
+                    <div className="bg-secondary/[0.03] p-4 border border-secondary/5 rounded-none font-sans text-xs space-y-2">
                       <p className="text-secondary font-mono text-[9px] uppercase tracking-widest font-bold">
                         // Inquiry Content
                       </p>
@@ -220,7 +220,7 @@ export default function InquiryLogModal({ isOpen, onClose }: InquiryLogModalProp
                         {activeInquiry.phoneNumber && (
                           <p><strong>Phone Number:</strong> {activeInquiry.phoneNumber}</p>
                         )}
-                        <p className="italic bg-white border border-black/5 p-2 mt-2 leading-relaxed text-on-surface-variant">
+                        <p className="italic bg-white/70 border border-secondary/5 p-2 mt-2 leading-relaxed text-on-surface-variant">
                           "{activeInquiry.briefInquiry}"
                         </p>
                       </div>
@@ -232,13 +232,13 @@ export default function InquiryLogModal({ isOpen, onClose }: InquiryLogModalProp
                         // Real-Time Investigative Milestones
                       </h5>
 
-                      <div className="relative pl-6 border-l border-black/10 space-y-6">
+                      <div className="relative pl-6 border-l border-secondary/10 space-y-6">
                         {getTimelineSteps(activeInquiry).map((step, idx) => (
                           <div key={idx} className="relative">
                             {/* Marker dot */}
-                            <div className={`absolute -left-[29px] top-1.5 w-3.5 h-3.5 border rounded-full rotate-45 flex items-center justify-center bg-white ${step.done
+                            <div className={`absolute -left-[29px] top-1.5 w-3.5 h-3.5 border rounded-full rotate-45 flex items-center justify-center bg-surface ${step.done
                                 ? 'border-secondary'
-                                : 'border-black/20'
+                                : 'border-secondary/20'
                               }`}>
                               {step.done && <div className="w-1.5 h-1.5 bg-secondary rounded-full" />}
                             </div>
@@ -277,7 +277,7 @@ export default function InquiryLogModal({ isOpen, onClose }: InquiryLogModalProp
 
                 {/* Footer notes */}
                 {activeInquiry && (
-                  <div className="border-t border-black/5 pt-4 mt-6 text-[10px] font-sans text-on-surface-variant/50 flex justify-between items-center">
+                  <div className="border-t border-secondary/5 pt-4 mt-6 text-[10px] font-sans text-on-surface-variant/50 flex justify-between items-center">
                     <span>SECURE_SESSION_CIPHER: SHA-256</span>
                     <span>Last Updated: {activeInquiry.lastUpdated}</span>
                   </div>

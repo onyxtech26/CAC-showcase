@@ -12,22 +12,22 @@ export default function WhyCAC() {
   const edgeItems = [
     {
       title: 'Evidence First',
-      desc: 'Every valuation and acquisition is backed by independent evidence, verified comparables and title checks — capital is deployed on evidence, not optimism.',
+      desc: 'Every finding is backed by documentary evidence — land titles, deeds, probate records and historical archives — never assumption.',
       icon: ShieldCheck
     },
     {
-      title: 'Transparency',
-      desc: 'Disciplined, transparent reporting at every milestone — from underwriting through to resale completion.',
+      title: 'Independent & Objective',
+      desc: 'We investigate every allegation objectively, wherever the evidence leads, regardless of which party in the family it favours.',
       icon: BarChart3
     },
     {
-      title: 'Capital Discipline',
-      desc: 'Capital is committed only against appraised, title-verified assets held under first legal charge — never unsecured promises.',
+      title: 'Confidential & Professional',
+      desc: 'Every case is handled with strict confidentiality, from initial consultation through to final resolution.',
       icon: Building
     },
     {
-      title: 'Aligned Returns',
-      desc: 'Structures are designed to protect investor capital first and align with realised, above-market returns.',
+      title: 'End-to-End Support',
+      desc: 'From investigation through to legal referral, recovery and resale, we carry each case through to a real resolution — not just a report.',
       icon: Compass
     }
   ];
@@ -49,11 +49,11 @@ export default function WhyCAC() {
             className="space-y-12"
           >
             <div>
-              <span className="font-mono text-xs text-secondary uppercase tracking-[0.25em] block mb-3">
+              <span className="font-mono text-xs text-tertiary uppercase tracking-[0.25em] block mb-3">
                 // Core Values
               </span>
               <h3 className="font-display text-3xl sm:text-4xl font-bold leading-tight text-on-surface">
-                The Principles Behind<br />Every Deal We Underwrite
+                The Principles Behind<br />Every Case We Investigate
               </h3>
             </div>
 
@@ -102,7 +102,7 @@ export default function WhyCAC() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6 }}
               whileHover={{ y: -6 }}
-              className="glass-surface p-8 sm:p-10 fingerprint-bg border-black/5 relative group hover:border-secondary/30 hover:shadow-[0_26px_55px_-26px_rgba(19,41,75,0.35)] transition-shadow duration-300"
+              className="glass-surface p-8 sm:p-10 fingerprint-bg border-secondary/5 relative group hover:border-secondary/30 hover:shadow-[0_26px_55px_-26px_rgba(19,41,75,0.18)] transition-shadow duration-300"
             >
               <div className="flex items-center gap-2 mb-4">
                 <Target className="w-4 h-4 text-secondary" />
@@ -112,7 +112,7 @@ export default function WhyCAC() {
                 Our Vision
               </h4>
               <p className="font-sans text-sm sm:text-base text-on-surface-variant leading-relaxed font-light">
-                To be the most trusted property appraisal and acquisition partner in the southern and northern Malaysian markets — the name investors associate with disciplined underwriting, transparent reporting and consistently realised returns.
+                To be the most trusted property forensic consultancy for Malaysian families — the name families turn to when ownership, inheritance or missing assets are in question.
               </p>
             </motion.div>
 
@@ -123,7 +123,7 @@ export default function WhyCAC() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               whileHover={{ y: -6 }}
-              className="glass-surface p-8 sm:p-10 fingerprint-bg border-black/5 relative group hover:border-secondary/30 hover:shadow-[0_26px_55px_-26px_rgba(19,41,75,0.35)] transition-shadow duration-300"
+              className="glass-surface p-8 sm:p-10 fingerprint-bg border-secondary/5 relative group hover:border-secondary/30 hover:shadow-[0_26px_55px_-26px_rgba(19,41,75,0.18)] transition-shadow duration-300"
             >
               <div className="flex items-center gap-2 mb-4">
                 <Compass className="w-4 h-4 text-secondary" />
@@ -133,7 +133,7 @@ export default function WhyCAC() {
                 Our Mission
               </h4>
               <p className="font-sans text-sm sm:text-base text-on-surface-variant leading-relaxed font-light">
-                To identify undervalued subsale and land assets, verify them through rigorous forensic appraisal, and convert them into secured, fixed-return opportunities that protect investor capital while delivering above-market profit.
+                To uncover the true ownership history of every estate we investigate, locate missing assets and documents, identify any irregular or unlawful transactions, and support families through to a fair, evidence-based resolution.
               </p>
             </motion.div>
 

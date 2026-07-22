@@ -28,7 +28,7 @@ export default function Navbar({ onOpenInquiryLog }: NavbarProps) {
       setIsScrolled(window.scrollY > 20);
 
       // Simple active link detection
-      const sections = ['home', 'about', 'services', 'projects', 'process', 'why-cac', 'contact'];
+      const sections = ['home', 'services', 'about', 'process', 'projects', 'why-cac', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -68,10 +68,10 @@ export default function Navbar({ onOpenInquiryLog }: NavbarProps) {
   }, [consultOpen]);
 
   const navLinks = [
-    { name: 'About', href: '#about', id: 'about' },
     { name: 'Services', href: '#services', id: 'services' },
-    { name: 'Completed Projects', href: '#projects', id: 'projects' },
-    { name: 'Process', href: '#process', id: 'process' },
+    { name: 'About Us', href: '#about', id: 'about' },
+    { name: 'Our Process', href: '#process', id: 'process' },
+    { name: 'Track Record', href: '#projects', id: 'projects' },
     { name: 'Why CAC', href: '#why-cac', id: 'why-cac' },
   ];
 
@@ -79,8 +79,8 @@ export default function Navbar({ onOpenInquiryLog }: NavbarProps) {
     <>
       <nav
         className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-5xl h-[64px] z-50 transition-all duration-300 border rounded-full ${isScrolled
-            ? 'bg-white/75 backdrop-blur-md border-black/10 shadow-lg'
-            : 'bg-white/30 backdrop-blur-sm border-black/5 shadow-md'
+            ? 'bg-surface/85 backdrop-blur-md border-secondary/10 shadow-lg'
+            : 'bg-surface/55 backdrop-blur-sm border-secondary/5 shadow-md'
           } flex justify-between items-center px-4 md:px-6`}
       >
         {/* Moving neon light travelling around the navbar pill border */}
@@ -196,7 +196,7 @@ export default function Navbar({ onOpenInquiryLog }: NavbarProps) {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
-            className="text-on-surface p-3 flex items-center justify-center rounded-sm hover:bg-black/5 focus:outline-none"
+            className="text-on-surface p-3 flex items-center justify-center rounded-sm hover:bg-secondary/5 focus:outline-none"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -205,14 +205,14 @@ export default function Navbar({ onOpenInquiryLog }: NavbarProps) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 top-[80px] z-40 bg-white/95 backdrop-blur-2xl md:hidden border-b border-black/15 animate-fade-in overflow-y-auto no-scrollbar">
+        <div className="fixed inset-0 top-[80px] z-40 bg-surface/95 backdrop-blur-2xl md:hidden border-b border-secondary/10 animate-fade-in overflow-y-auto no-scrollbar">
           <div className="flex flex-col p-6 space-y-6 font-mono text-sm tracking-wider uppercase">
             {navLinks.map((link, idx) => (
               <a
                 key={link.id}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`py-4 border-b border-black/5 flex justify-between items-center ${activeSection === link.id ? 'text-secondary font-bold' : 'text-on-surface-variant'
+                className={`py-4 border-b border-secondary/5 flex justify-between items-center ${activeSection === link.id ? 'text-tertiary font-bold' : 'text-on-surface-variant'
                   }`}
               >
                 <span>{link.name}</span>

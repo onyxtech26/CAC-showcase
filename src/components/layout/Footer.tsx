@@ -4,8 +4,9 @@ import { motion } from 'motion/react';
 export default function Footer() {
   const links = [
     { name: 'Services', href: '#services' },
-    { name: 'Forensic Method', href: '#process' },
-    { name: 'Legal Framework', href: '#about' },
+    { name: 'Our Process', href: '#process' },
+    { name: 'About Us', href: '#about' },
+    { name: 'Contact Us', href: '#contact' },
   ];
 
   const contacts = [
@@ -20,7 +21,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-white/[0.12] backdrop-blur-2xl border-t border-white/25 pt-12 pb-8 px-6 md:px-12 xl:px-20 overflow-hidden z-10 shadow-[0_-20px_50px_-15px_rgba(0,0,0,0.06)]">
+    <footer className="relative bg-surface-dim/60 backdrop-blur-2xl border-t border-secondary/10 pt-12 pb-8 px-6 md:px-12 xl:px-20 overflow-hidden z-10 shadow-[0_-20px_50px_-15px_rgba(19,41,75,0.08)]">
       {/* Liquid Organic Morphing Glass Blobs in Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none select-none z-0">
         {/* Blob 1 */}
@@ -81,27 +82,28 @@ export default function Footer() {
       </div>
 
       {/* Glossy Liquid Specular Reflection Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/15 via-white/5 to-white/0 pointer-events-none z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/10 to-transparent pointer-events-none z-0" />
 
       {/* Edge highlight reflection stroke */}
-      <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/60 to-transparent pointer-events-none z-0" />
-      <div className="absolute top-[1.5px] inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none z-0 blur-[1px]" />
+      <div className="absolute top-0 inset-x-0 h-[1.5px] bg-gradient-to-r from-transparent via-secondary/15 to-transparent pointer-events-none z-0" />
+      <div className="absolute top-[1.5px] inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none z-0 blur-[1px]" />
 
-      <div className="relative z-10 max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-start gap-12 border-b border-black/5 pb-10">
+      <div className="relative z-10 max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-start gap-12 border-b border-secondary/10 pb-10">
 
         {/* Brand Column */}
         <div className="space-y-4">
           <div className="flex items-center gap-2 group cursor-pointer">
-            <span className="font-display text-2xl font-bold tracking-tighter text-secondary group-hover:text-tertiary transition-colors duration-300">
-              CAC
-            </span>
-            <span className="h-4 w-[1px] bg-black/20"></span>
+            <img src="/icon.png" alt="CAC" className="h-8 w-auto" />
+            <span className="h-4 w-[1px] bg-secondary/20"></span>
             <span className="font-mono text-[9px] tracking-[0.2em] text-on-surface-variant/60 uppercase">
-              Est. 2009
+              Turning Intelligence Into Evidence
             </span>
           </div>
+          <p className="font-sans text-xs text-on-surface-variant max-w-xs leading-relaxed font-light font-medium text-tertiary">
+            "Discovering the Past • Protecting the Present • Securing the Future"
+          </p>
           <p className="font-sans text-xs text-on-surface-variant max-w-xs leading-relaxed font-light">
-            Conglomerate Appraisal Consultancy — property appraisal, forensic due diligence and strategic acquisition of subsale and land assets across Johor &amp; All of Malaysia.
+            Conglomerate Appraisal Consultancy (CAC) is an elite property forensic and intelligence consultancy. Independent, evidence-based investigation for family estates, assets, and land recovery.
           </p>
         </div>
 

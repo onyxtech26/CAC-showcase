@@ -1,88 +1,184 @@
-import { CompletedProject, Service } from '../types';
+import { CompletedProject, Service, Stat } from '../types';
 
 export const SERVICES: Service[] = [
   {
-    id: 'legal-court-matters',
-    iconName: 'Scale',
-    title: 'Legal Court Matters',
-    description: 'Court-ready forensic evidence, valuation support and case management for property, estate and inheritance proceedings.',
-    detailedDescription: 'We support clients and counsel through property-related court matters — from Letters of Administration (LA) and Probate applications to contested land, boundary and inheritance proceedings. Every submission is backed by court-admissible forensic evidence and defensible valuation findings.',
+    id: 'property-forensic',
+    iconName: 'Fingerprint',
+    imageUrl: '/assets/icon-ownership-3d-floating.png',
+    title: 'Property Forensic Investigation',
+    description: 'Systematic analysis of land titles, deeds, and historical records to establish true, pioneer ownership and trace succession lines.',
+    detailedDescription: 'We conduct independent property forensic audits by researching historical registry books, colonial grants, surveyor cadastrals, and local archives. Our findings map succession chains, clarify heir validity, and compile evidence packages designed to stand up in judicial and state arbitration processes.',
     checklist: [
-      'Court-admissible forensic and valuation reports',
-      'Letters of Administration (LA) & Probate application support',
-      'Evidence preparation for land and inheritance disputes',
-      'Liaison with lawyers and counsel through proceedings',
-      'Post-judgment execution, transfer and registration support'
+      'Colonial land grant & pioneer title tracing',
+      'Registry chain-of-ownership reconstruction',
+      'Deed authenticity & conveyance audits',
+      'High-court archive & probate record searches',
+      'Compilation of verified forensic evidence portfolios'
     ]
   },
   {
-    id: 'forensic-consultation',
-    iconName: 'SearchCode',
-    title: 'Property Forensic Consultation',
-    description: 'Deep-dive investigation of title, encumbrances, valuation integrity and dispute exposure — uncovering risk and hidden value before capital is committed.',
-    detailedDescription: 'Our core discipline. We conduct deep-dive forensic investigation of title, encumbrances, valuation integrity and dispute exposure — uncovering risk and hidden value before capital is committed to any asset.',
+    id: 'family-estate',
+    iconName: 'Users',
+    imageUrl: '/assets/icon-ownership-3d-floating.png',
+    title: 'Family Estate Investigation',
+    description: 'Resolving complex estate disputes among heirs by tracing hidden assets, verifying beneficiaries, and clarifying distribution paths.',
+    detailedDescription: 'When family estates are contested or lack clear administration, our agents step in. We research family genealogies, identify all lawful beneficiaries (including missing or unnotified heirs), uncover undisclosed or hidden inherited assets, and provide administration support for probate filings.',
     checklist: [
-      'Title and chain-of-ownership investigation',
-      'Encumbrance, caveat and easement analysis',
-      'Valuation integrity and comparables verification',
-      'Dispute and litigation exposure assessment',
-      'Risk and hidden-value findings before capital is committed'
+      'Beneficiary tracing & lawful heir identification',
+      'Hidden estate asset discovery & mapping',
+      'Genealogy & family tree lineage verification',
+      'Intestate distribution path clarification',
+      'Probate court document compilation'
     ]
   },
   {
-    id: 'subsale-flips',
-    iconName: 'Building2',
-    title: 'Subsale Acquisition & Flips',
-    description: 'Sourcing and securing below-market subsale homes, refurbishing where needed, and resolving to a profitable resale within months.',
-    detailedDescription: 'We source and secure below-market subsale homes, refurbish where needed, and resolve them to a profitable resale within a short, defined window — typically two to three months per project.',
+    id: 'property-intelligence',
+    iconName: 'Globe',
+    imageUrl: '/assets/icon-missing-3d-floating.png',
+    title: 'Property Intelligence Centre',
+    description: 'Advanced property due diligence utilizing GIS maps, satellite imagery, survey plans, and historical ownership chronologies.',
+    detailedDescription: 'Our intelligence services compile geospatial data, registry entries, and historical zoning maps. We construct a comprehensive dashboard of a property’s physical and legal boundary history, protecting buyers and developers from costly encroachment or land classification errors.',
     checklist: [
-      'Sourcing of below-market subsale opportunities',
-      'Acquisition negotiation and securing of the asset',
-      'Targeted refurbishment where value can be added',
-      'Fast, profitable resale within a defined window',
-      'Milestone reporting through to resale completion'
+      'Geospatial boundary audits & GIS surveying analysis',
+      'Historical zoning & land use chronology mapping',
+      'Encroachment & easement risk assessment',
+      'Zoning restriction & developmental constraint review',
+      'High-resolution satellite ownership mapping'
     ]
   },
   {
-    id: 'land-banking',
-    iconName: 'Compass',
-    title: 'Land Banking & Development',
-    description: 'Acquisition of agricultural and development land at acquisition discounts, held and repositioned for conversion or onward sale.',
-    detailedDescription: 'We acquire agricultural and development land at meaningful acquisition discounts, then hold and reposition it for conversion or onward sale — including higher-upside plays such as our anchor land parcel in Paloh, Johor.',
+    id: 'missing-property',
+    iconName: 'MapPin',
+    imageUrl: '/assets/icon-missing-3d-floating.png',
+    title: 'Missing Property Recovery',
+    description: 'Locating properties lost due to township developments, compulsory government acquisition, or historical zoning changes.',
+    detailedDescription: 'Valuable ancestral land often gets lost in government acquisitions, highway constructions, or township consolidation projects. We trace lost coordinates, audit replacement land allocations, and determine if outstanding compensation funds remain unclaimed by the rightful heirs.',
     checklist: [
-      'Acquisition of agricultural and development land at a discount',
-      'Highest and Best Use and conversion assessment',
-      'Repositioning for conversion or onward sale',
-      'Holding strategy aligned to the facility window',
-      'Exit routing to development partners or buyers'
+      'Historical coordinates & boundary recovery',
+      'Compulsory government acquisition audit',
+      'Highway, rail, & infrastructure project mapping',
+      'Unclaimed compensation fund tracing',
+      'Zoning layout & master plan reconciliation'
     ]
   },
   {
-    id: 'estate-jkptg',
-    iconName: 'FileSignature',
-    title: 'Big & Small Estate (JKPTG)',
-    description: 'End-to-end administration of big and small estate claims through JKPTG and the courts — from petition to final distribution.',
-    detailedDescription: 'We manage estate matters end-to-end: small estate petitions through JKPTG (Department of Director General of Lands and Mines), Letters of Administration and Probate for larger estates, verification of assets and heirs, and carrying distribution orders through to registered transfer.',
+    id: 'asset-tracing',
+    iconName: 'Coins',
+    imageUrl: '/assets/icon-asset-3d-floating.png',
+    title: 'Asset Tracing & Recovery',
+    description: 'Identifying and mapping residential, commercial, agricultural, corporate, and vehicle assets held under small or large estates.',
+    detailedDescription: 'We trace assets from single residential homes to sprawling agricultural plantations, corporate shareholdings, bank funds, and international holdings. Our investigations map out current assets, identify unauthorized transfers, and verify hidden ownership structures.',
     checklist: [
-      'Small estate petitions and hearings via JKPTG',
-      'Letters of Administration (LA) & Probate for larger estates',
-      'Asset and heir verification with official title searches',
-      'Distribution order applications and follow-through',
-      'Transfer and registration of inherited assets to heirs'
+      'Residential & commercial portfolio mapping',
+      'Agricultural & plantation asset tracking',
+      'Corporate shareholdings & trust structure investigation',
+      'Unauthorized asset transfer audit',
+      'Vehicle, equipment, & luxury asset location'
     ]
   },
   {
-    id: 'investment-advisory',
-    iconName: 'Briefcase',
-    title: 'Market & Investment Advisory',
-    description: 'Exit strategy, pricing and timing guidance for partners across the property pipeline.',
-    detailedDescription: 'We provide exit strategy, pricing and timing guidance for our partners — translating forensic appraisal and market evidence into disciplined decisions on when and how to realise value across the pipeline.',
+    id: 'title-investigation',
+    iconName: 'FileText',
+    imageUrl: '/assets/icon-title-3d-floating.png',
+    title: 'Title & Document Investigation',
+    description: 'Locating and verifying missing land titles, Deeds of Gift, wills, court orders, and land registry records.',
+    detailedDescription: 'When original documents are lost, misplaced, or withheld, we retrieve certified copies, explore registry files, search court probate records, and locate legal agreements (SPAs, Wills, Deeds of Gift) to establish formal chains of custody and legal security.',
     checklist: [
-      'Exit strategy design for each asset',
-      'Pricing guidance based on verified evidence',
-      'Timing and market-window analysis',
-      'Portfolio-level capital allocation guidance',
-      'Realised-return tracking against projections'
+      'Registry file searches for lost or damaged titles',
+      'Deed of Gift & Will document validation',
+      'Probate files & High Court order retrieval',
+      'Certified copy procurement from land offices',
+      'Historical transaction ledger verification'
+    ]
+  },
+  {
+    id: 'fraud-investigation',
+    iconName: 'ShieldAlert',
+    imageUrl: '/assets/icon-fraud-3d-floating.png',
+    title: 'Fraud & Dispute Investigation',
+    description: 'Exposing forged signatures, fake deeds, invalid powers of attorney, and fraudulent claims to family properties.',
+    detailedDescription: 'We conduct forensic analyses of questionable property transfers. Our team investigates fraudulent signatures, unauthorized powers of attorney, fake registry entries, and illegal sales, delivering an independent factual report for legal action.',
+    checklist: [
+      'Signature & document forgery detection',
+      'Power of Attorney validity investigation',
+      'Registry transaction audit for irregularities',
+      'Unauthorised sale & asset concealment analysis',
+      'Fact-finding report compilation for legal counsel'
+    ]
+  },
+  {
+    id: 'legal-coordination',
+    iconName: 'Handshake',
+    imageUrl: '/assets/icon-legal-3d-floating.png',
+    title: 'Legal & Authority Coordination',
+    description: 'Preparing evidence portfolios, coordinating with land offices, and referring clients to expert probate and land attorneys.',
+    detailedDescription: 'We translate our investigation findings into legal evidence files. We refer clients to elite, experienced attorneys specializing in land law, probate, and inheritance, coordinating with government agencies and survey offices through to case resolution.',
+    checklist: [
+      'Evidence portfolio compilation for court cases',
+      'Referrals to specialist property & probate attorneys',
+      'Liaising with land offices & survey departments',
+      'Strategic advisory on case evidence structure',
+      'Post-investigation case progress tracking'
+    ]
+  },
+  {
+    id: 'property-sale',
+    iconName: 'Home',
+    imageUrl: '/assets/icon-missing-3d-floating.png',
+    title: 'Property Sale Coordination',
+    description: 'Facilitating valuation, marketing, and subsale transaction coordination for recovered or inherited real estate assets.',
+    detailedDescription: 'Once property ownership disputes are resolved, we help clients unlock the financial value of their assets. Working alongside licensed real estate professionals, we assist with property valuations, marketing campaigns, and subsale transaction compliance.',
+    checklist: [
+      'Property valuation & market appraisal support',
+      'Marketing campaigns targeting qualified networks',
+      'Transaction compliance & documentation check',
+      'Liaison with buyers, brokers, and bank valuers',
+      'Negotiation advisory for maximum asset value'
+    ]
+  },
+  {
+    id: 'buyer-matching',
+    iconName: 'UserCheck',
+    imageUrl: '/assets/icon-legal-3d-floating.png',
+    title: 'Investor & Buyer Matching',
+    description: 'Connecting property owners with a vetted network of real estate investors, cash buyers, and developers.',
+    detailedDescription: 'For clients seeking quick liquidations or partnership deals on newly resolved tracts of land and commercial blocks, we coordinate directly with our private investor network, matchmaking sellers with qualified cash buyers and developers.',
+    checklist: [
+      'Matchmaking with vetted property developers',
+      'Direct coordination with private cash buyers',
+      'Structuring Joint Venture (JV) property proposals',
+      'Facilitating off-market transaction bids',
+      'Targeted pitches to real estate investment syndicates'
+    ]
+  },
+  {
+    id: 'investment-consultancy',
+    iconName: 'TrendingUp',
+    imageUrl: '/assets/icon-asset-3d-floating.png',
+    title: 'Investment Consultancy',
+    description: 'Advising on property due diligence, acquisition feasibility, development potential, and risk mitigation strategies.',
+    detailedDescription: 'We guide real estate buyers, developers, and funds through acquisition due diligence. Our consultancy reviews ownership histories, restrictive covenants, zoning limits, and development risks to ensure every investment is sound and legally protected.',
+    checklist: [
+      'Acquisition due diligence & title risk auditing',
+      'Development potential & zoning compliance check',
+      'Joint Venture feasibility & structure analysis',
+      'Property risk profiles & liability assessments',
+      'Long-term asset appreciation and exit planning'
+    ]
+  },
+  {
+    id: 'renovation-consultancy',
+    iconName: 'Wrench',
+    imageUrl: '/assets/icon-title-3d-floating.png',
+    title: 'Renovation & ROI Consultancy',
+    description: 'Evaluating property upgrades, coordinating contractors, and structuring renovations to maximize resale market value.',
+    detailedDescription: 'We help clients maximize the market value of recovered or inherited properties before sale. We coordinate structural and cosmetic upgrades, establish contractor budgets, and conduct ROI analyses to ensure renovations yield optimal capital gains.',
+    checklist: [
+      'Before-and-after value uplift assessments',
+      'Detailed renovation scope & contractor budgeting',
+      'Coordination of exterior and interior upgrades',
+      'Project milestone monitoring and quality control',
+      'Market positioning & rental yield maximization analysis'
     ]
   }
 ];
@@ -114,14 +210,14 @@ export const COMPLETED_PROJECTS: CompletedProject[] = [
     id: 'cp-abundant',
     title: 'Abandoned',
     count: '40+',
-    blurb: 'Complex recovery and resolution engagements carried to completion.',
+    blurb: 'Abandoned and forgotten properties traced, verified and revived.',
     iconName: 'Layers'
   },
   {
     id: 'cp-forensic',
     title: 'Forensic',
     count: '50+',
-    blurb: 'Deep-dive title and valuation investigations closed with findings.',
+    blurb: 'Deep-dive title, ownership and fraud investigations closed with findings.',
     iconName: 'Fingerprint'
   },
   {
@@ -137,3 +233,11 @@ export const CASE_STATS = {
   totalCompleted: '227',
   activeCases: '30+'
 };
+
+// Headline stats bar — real, verifiable figures only.
+export const STATS: Stat[] = [
+  { id: 'st-years', value: '17+', label: 'Years Established', iconName: 'CalendarClock' },
+  { id: 'st-cases', value: '227+', label: 'Cases Completed', iconName: 'FolderCheck' },
+  { id: 'st-active', value: '30+', label: 'Active Cases', iconName: 'Activity' },
+  { id: 'st-disciplines', value: '12', label: 'Core Disciplines', iconName: 'ShieldCheck' }
+];

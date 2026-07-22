@@ -12,7 +12,7 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [service, setService] = useState('Property Forensic Consultation');
+  const [service, setService] = useState('Property Ownership Investigation');
   const [briefInquiry, setBriefInquiry] = useState('');
 
   // Custom multi-stage form submission status
@@ -20,12 +20,12 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
   const [issuedTrackingCode, setIssuedTrackingCode] = useState('');
 
   const servicesList = [
-    'Legal Court Matters',
-    'Property Forensic Consultation',
-    'Subsale Acquisition & Flips',
-    'Land Banking & Development',
-    'Big & Small Estate (JKPTG)',
-    'Market & Investment Advisory'
+    'Property Ownership Investigation',
+    'Missing Property Investigation',
+    'Title & Document Investigation',
+    'Fraud & Dispute Investigation',
+    'Asset Tracing & Recovery',
+    'Legal & Advisory Support'
   ];
 
   const handleWhatsApp = () => {
@@ -123,7 +123,7 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-transparent border-b border-black/5 relative overflow-hidden">
+    <section id="contact" className="py-16 md:py-24 bg-transparent border-b border-secondary/5 relative overflow-hidden">
       <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 xl:px-20 grid grid-cols-1 md:grid-cols-2 gap-16 xl:gap-24">
 
         {/* Left Side: Investigator Info Card */}
@@ -143,16 +143,16 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
           </div>
 
           {/* Expert Card */}
-          <div className="glass-surface p-8 border-black/5 backdrop-blur-md relative overflow-hidden">
+          <div className="glass-surface p-8 border-secondary/5 backdrop-blur-md relative overflow-hidden">
             {/* Background coordinate grid watermark */}
-            <div className="absolute top-2 right-4 font-mono text-[9px] text-black/[0.04] uppercase">
+            <div className="absolute top-2 right-4 font-mono text-[9px] text-secondary/[0.06] uppercase">
               // CASE_FILE_ASSIGNMENT
             </div>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-8">
-              <div className="w-20 h-20 rounded-full border-2 border-secondary p-1 overflow-hidden bg-surface-container flex-shrink-0 transition-all duration-300 hover:scale-105 hover:border-tertiary hover:shadow-lg hover:shadow-tertiary/20">
+              <div className="w-20 h-20 rounded-full border-2 border-tertiary p-1 overflow-hidden bg-surface-container flex-shrink-0 transition-all duration-300 hover:scale-105 hover:border-secondary hover:shadow-lg hover:shadow-tertiary/20">
                 <div
-                  className="w-full h-full rounded-full bg-cover bg-center"
+                  className="w-full h-full rounded-full bg-cover bg-center bg-white"
                   style={{ backgroundImage: `url('/cac.png')` }}
                 />
               </div>
@@ -204,7 +204,7 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="absolute inset-0 bg-white/95 backdrop-blur-xl z-20 flex flex-col items-center justify-center p-8 text-center"
+                  className="absolute inset-0 bg-surface/95 backdrop-blur-xl z-20 flex flex-col items-center justify-center p-8 text-center"
                 >
                   {submissionStage === 'securing' && (
                     <div className="space-y-4">
@@ -321,7 +321,7 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   placeholder="Your Name"
-                  className="w-full bg-transparent border-0 border-b border-black/15 px-0 py-2 focus:ring-0 focus:border-secondary text-on-surface placeholder:text-on-surface-variant/50 font-sans text-sm transition-all focus:outline-none"
+                  className="w-full bg-transparent border-0 border-b border-secondary/20 px-0 py-2 focus:ring-0 focus:border-secondary text-on-surface placeholder:text-on-surface-variant/50 font-sans text-sm transition-all focus:outline-none"
                 />
               </div>
 
@@ -335,7 +335,7 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="email@address.com"
-                  className="w-full bg-transparent border-0 border-b border-black/15 px-0 py-2 focus:ring-0 focus:border-secondary text-on-surface placeholder:text-on-surface-variant/50 font-sans text-sm transition-all focus:outline-none"
+                  className="w-full bg-transparent border-0 border-b border-secondary/20 px-0 py-2 focus:ring-0 focus:border-secondary text-on-surface placeholder:text-on-surface-variant/50 font-sans text-sm transition-all focus:outline-none"
                 />
               </div>
 
@@ -349,7 +349,7 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
                   value={phoneNumber}
                   onChange={(e) => setPhoneNumber(e.target.value)}
                   placeholder="+60 12-345 6789"
-                  className="w-full bg-transparent border-0 border-b border-black/15 px-0 py-2 focus:ring-0 focus:border-secondary text-on-surface placeholder:text-on-surface-variant/50 font-sans text-sm transition-all focus:outline-none"
+                  className="w-full bg-transparent border-0 border-b border-secondary/20 px-0 py-2 focus:ring-0 focus:border-secondary text-on-surface placeholder:text-on-surface-variant/50 font-sans text-sm transition-all focus:outline-none"
                 />
               </div>
 
@@ -360,10 +360,10 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
                 <select
                   value={service}
                   onChange={(e) => setService(e.target.value)}
-                  className="w-full bg-transparent border-0 border-b border-black/15 px-0 py-2 focus:ring-0 focus:border-secondary text-on-surface font-sans text-sm transition-all focus:outline-none cursor-pointer"
+                  className="w-full bg-transparent border-0 border-b border-secondary/20 px-0 py-2 focus:ring-0 focus:border-secondary text-on-surface font-sans text-sm transition-all focus:outline-none cursor-pointer"
                 >
                   {servicesList.map((srv) => (
-                    <option key={srv} value={srv} className="bg-white text-on-surface">
+                    <option key={srv} value={srv} className="bg-surface text-on-surface">
                       {srv}
                     </option>
                   ))}
@@ -380,7 +380,7 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
                   value={briefInquiry}
                   onChange={(e) => setBriefInquiry(e.target.value)}
                   placeholder="Describe your property case, title issue, or survey requirements..."
-                  className="w-full bg-transparent border-0 border-b border-black/15 px-0 py-2 focus:ring-0 focus:border-secondary text-on-surface placeholder:text-on-surface-variant/50 font-sans text-sm transition-all focus:outline-none resize-none"
+                  className="w-full bg-transparent border-0 border-b border-secondary/20 px-0 py-2 focus:ring-0 focus:border-secondary text-on-surface placeholder:text-on-surface-variant/50 font-sans text-sm transition-all focus:outline-none resize-none"
                 />
               </div>
 

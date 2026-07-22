@@ -8,8 +8,10 @@ import About from './components/sections/About';
 import Services from './components/sections/Services';
 import CompletedProjects from './components/sections/CompletedProjects';
 import Timeline from './components/sections/Timeline';
+import StatsBar from './components/sections/StatsBar';
 import WhyCAC from './components/sections/WhyCAC';
 import Contact from './components/sections/Contact';
+import IntelligenceHub from './components/sections/IntelligenceHub';
 
 export default function App() {
   const [isInquiryLogOpen, setIsInquiryLogOpen] = useState(false);
@@ -40,17 +42,23 @@ export default function App() {
       {/* Hero Section with animated property graphic */}
       <Hero onBookConsultation={handleBookConsultation} />
 
+      {/* 12 Capabilities with expandable forensics drawer */}
+      <Services />
+
+      {/* Property Intelligence Dashboard Hub */}
+      <IntelligenceHub />
+
       {/* Firm Overview Section */}
       <About />
 
-      {/* 6 Capabilities with expandable forensics drawer */}
-      <Services />
+      {/* Interactive Process Stepper with system outputs */}
+      <Timeline />
+
+      {/* Headline track-record stats bar */}
+      <StatsBar />
 
       {/* Completed Projects — futuristic neon track-record cards */}
       <CompletedProjects />
-
-      {/* Interactive Process Stepper with system outputs */}
-      <Timeline />
 
       {/* Why Choose CAC and Vision/Mission offset grid */}
       <WhyCAC />

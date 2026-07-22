@@ -7,3 +7,9 @@ coverage/
 .env*
 !.env.example
 .claude/
+.vercel
+
+# Personal cross-session tracking notes (not for the shared repo)
+CLAUDE.md
+PROJECT_STATUS.md
+docs/CHANGELOG.md
