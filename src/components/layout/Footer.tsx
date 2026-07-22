@@ -170,9 +170,9 @@ export default function Footer() {
 
       {/* Copy fine print */}
       <div className="relative z-10 max-w-[1440px] mx-auto mt-6 flex flex-col sm:flex-row justify-between items-center font-mono text-[9px] text-on-surface-variant/40 gap-4">
-        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-          <span>© 2026 Conglomerate Appraisal Consultancy. All rights reserved.</span>
-          <span className="hidden sm:inline opacity-30">|</span>
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
+          <span>© 2026 Conglomerate Appraisal Consultancy</span>
+          <span className="hidden sm:inline opacity-30">•</span>
           <div className="flex items-center gap-2">
             <span className="font-mono text-[10px] text-on-surface-variant/60">Powered by</span>
             <a
