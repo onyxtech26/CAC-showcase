@@ -1,8 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ShieldCheck } from 'lucide-react';
-// @ts-ignore
-import aboutPic from '../../assets/hero-pic.png';
 
 export default function About() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -59,46 +57,29 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* Right Side Visual with scanning elements */}
+        {/* Right Side Visual: Clean Floating 3D Building (No Holographic Overlay) */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative"
+          className="relative flex items-center justify-center"
         >
-          <div className="aspect-square relative animate-float">
-            {/* Ambient glow behind the lens */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] rounded-full bg-secondary/10 blur-[70px] pointer-events-none" />
+          <div className="aspect-square relative w-full animate-float">
+            {/* Soft subtle ambient shadow glow behind floating building */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] rounded-full bg-tertiary/10 blur-[80px] pointer-events-none" />
 
-            {/* Rotating dashed survey ring */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[88%] h-[88%] rounded-full border border-dashed border-secondary/20 animate-[spin_28s_linear_infinite] pointer-events-none" />
-
-            {/* Orbiting gold survey marker */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[88%] h-[88%] animate-[spin_16s_linear_infinite] pointer-events-none">
-              <span className="absolute left-1/2 top-0 -translate-x-1/2 w-2 h-2 rounded-full bg-tertiary shadow-[0_0_10px_rgba(202,138,4,0.7)]" />
-            </div>
-
-            {/* The Floating 3D corporate building image */}
+            {/* User Uploaded Floating 3D Modern Estate */}
             <motion.div
               style={{ y: imageY }}
-              className="relative z-10 w-full h-full flex items-center justify-center pointer-events-none select-none"
+              className="relative z-10 w-full h-full flex items-center justify-center pointer-events-none select-none p-2"
             >
               <img
-                src="/assets/about-building-3d-floating.png"
-                alt="CAC Corporate Headquarters Floating 3D Building"
-                className="w-full h-full object-contain filter drop-shadow-[0_15px_30px_rgba(74,116,201,0.35)]"
+                src="/assets/user-house-3d.png"
+                alt="CAC Modern 3D Luxury Family Estate Model"
+                className="w-full max-h-[580px] lg:max-h-[640px] object-contain scale-105 md:scale-110 lg:scale-115 filter drop-shadow-[0_25px_50px_rgba(202,138,4,0.35)] transition-transform duration-700 hover:scale-120"
               />
             </motion.div>
-
-            {/* Animated survey scan sweeping across the lens */}
-            <div className="absolute left-[8%] w-[84%] h-[2px] bg-gradient-to-r from-transparent via-tertiary/70 to-transparent shadow-[0_0_12px_rgba(202,138,4,0.5)] animate-scan z-20 pointer-events-none" />
-
-            {/* Corner registration brackets */}
-            <div className="absolute top-0 left-0 w-7 h-7 border-t border-l border-secondary/30 z-20 pointer-events-none" />
-            <div className="absolute top-0 right-0 w-7 h-7 border-t border-r border-secondary/30 z-20 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-7 h-7 border-b border-l border-secondary/30 z-20 pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-7 h-7 border-b border-r border-secondary/30 z-20 pointer-events-none" />
           </div>
         </motion.div>
 
@@ -106,3 +87,5 @@ export default function About() {
     </section>
   );
 }
+
+
