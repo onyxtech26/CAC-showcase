@@ -1,12 +1,13 @@
 import { Layers } from 'lucide-react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   const links = [
-    { name: 'Services', href: '#services' },
-    { name: 'Our Process', href: '#process' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Contact Us', href: '#contact' },
+    { name: 'Services', path: '/services' },
+    { name: 'Our Process', path: '/process' },
+    { name: 'About Us', path: '/about' },
+    { name: 'Contact Us', path: '/contact' },
   ];
 
   const contacts = [
@@ -115,9 +116,13 @@ export default function Footer() {
             <ul className="space-y-2 font-sans text-xs text-on-surface-variant font-light">
               {links.map((link, idx) => (
                 <li key={idx}>
-                  <a href={link.href} className="hover:text-tertiary transition-colors">
+                  <Link
+                    to={link.path}
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                    className="hover:text-tertiary transition-colors"
+                  >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

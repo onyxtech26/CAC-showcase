@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Mail, ChevronDown } from 'lucide-react';
 import { whatsappLink, emailLink, CONSULT_EMAIL, WHATSAPP_NUMBER } from '../../lib/contact';
@@ -67,28 +68,23 @@ export default function Navbar({ onOpenInquiryLog }: NavbarProps) {
     };
   }, [consultOpen]);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const navLinks = [
-    { name: 'Services', href: '#services', id: 'services' },
-    { name: 'About Us', href: '#about', id: 'about' },
-    { name: 'Our Process', href: '#process', id: 'process' },
-    { name: 'Track Record', href: '#projects', id: 'projects' },
-    { name: 'Why CAC', href: '#why-cac', id: 'why-cac' },
+    { name: 'Services', path: '/services' },
+    { name: 'About Us', path: '/about' },
+    { name: 'Our Process', path: '/process' },
+    { name: 'Track Record', path: '/projects' },
+    { name: 'Why CAC', path: '/why-cac' },
+    { name: 'Contact', path: '/contact' },
   ];
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+  const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    if (targetId === 'home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      const el = document.getElementById(targetId);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-    if (window.history.replaceState) {
-      window.history.replaceState(null, '', window.location.pathname);
-    }
+    navigate('/');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -102,11 +98,11 @@ export default function Navbar({ onOpenInquiryLog }: NavbarProps) {
         {/* Moving neon light travelling around the navbar pill border */}
         <span className="neon-ring" aria-hidden="true" />
 
-        {/* Logo — click scrolls to top cleanly */}
-        <a
-          href="/"
-          onClick={(e) => handleNavClick(e, 'home')}
-          aria-label="CAC — back to top"
+        {/* Logo — click navigates home */}
+        <Link
+          to="/"
+          onClick={handleLogoClick}
+          aria-label="CAC — back to home"
           className="flex items-center group select-none"
         >
           <img
@@ -114,24 +110,30 @@ export default function Navbar({ onOpenInquiryLog }: NavbarProps) {
             alt="Conglomerate Appraisal Consultancy"
             className="h-9 md:h-10 w-auto group-hover:scale-110 transition-transform duration-300"
           />
-        </a>
+        </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-6 lg:gap-8 font-sans text-xs uppercase tracking-[0.2em] text-on-surface-variant">
-          {navLinks.map((link) => (
-            <a
-              key={link.id}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.id)}
-              className={`hover:text-tertiary transition-all duration-300 relative py-1 ${activeSection === link.id ? 'text-secondary font-semibold font-mono' : ''
-                }`}
-            >
-              {link.name}
-              {activeSection === link.id && (
-                <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-secondary to-tertiary" />
-              )}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path;
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className={`hover:text-tertiary transition-all duration-300 relative py-1 ${isActive ? 'text-secondary font-semibold font-mono' : ''
+                  }`}
+              >
+                {link.name}
+                {isActive && (
+                  <span className="absolute bottom-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-secondary to-tertiary" />
+                )}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Book Consultation — dropdown with Email / WhatsApp */}
@@ -225,18 +227,24 @@ export default function Navbar({ onOpenInquiryLog }: NavbarProps) {
       {mobileMenuOpen && (
         <div className="fixed inset-0 top-[80px] z-40 bg-surface/95 backdrop-blur-2xl md:hidden border-b border-secondary/10 animate-fade-in overflow-y-auto no-scrollbar">
           <div className="flex flex-col p-6 space-y-6 font-mono text-sm tracking-wider uppercase">
-            {navLinks.map((link, idx) => (
-              <a
-                key={link.id}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.id)}
-                className={`py-4 border-b border-secondary/5 flex justify-between items-center ${activeSection === link.id ? 'text-tertiary font-bold' : 'text-on-surface-variant'
-                  }`}
-              >
-                <span>{link.name}</span>
-                <span className="text-[10px] opacity-40">0{idx + 1}</span>
-              </a>
-            ))}
+            {navLinks.map((link, idx) => {
+              const isActive = location.pathname === link.path;
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className={`py-4 border-b border-secondary/5 flex justify-between items-center ${isActive ? 'text-tertiary font-bold' : 'text-on-surface-variant'
+                    }`}
+                >
+                  <span>{link.name}</span>
+                  <span className="text-[10px] opacity-40">0{idx + 1}</span>
+                </Link>
+              );
+            })}
             <div className="pt-4 flex flex-col gap-3">
               <span className="font-mono text-[10px] tracking-[0.25em] text-on-surface-variant/60 uppercase">
                 Book Consultation
