@@ -170,7 +170,21 @@ export default function Footer() {
 
       {/* Copy fine print */}
       <div className="relative z-10 max-w-[1440px] mx-auto mt-6 flex flex-col sm:flex-row justify-between items-center font-mono text-[9px] text-on-surface-variant/40 gap-4">
-        <p>Powered by Onyxx Tech Hub. All Rights Reserved.</p>
+        <div className="flex items-center gap-2">
+          <span>Powered by</span>
+          <a
+            href="https://onyxx-tech.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center hover:opacity-80 transition-opacity"
+          >
+            <img
+              src="/assets/onyxx-tech-logo.png"
+              alt="Onyxx Tech"
+              className="h-4 sm:h-5 w-auto object-contain"
+            />
+          </a>
+        </div>
         <div className="flex gap-6">
           <span className="hover:text-on-surface cursor-pointer">Privacy Policy</span>
           <span className="hover:text-on-surface cursor-pointer">Terms of Engagement</span>
