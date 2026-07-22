@@ -1,3 +1,10 @@
+export interface Stat {
+  id: string;
+  value: string;  // e.g. "227+" — rendered with the rolling-number animation
+  label: string;
+  iconName: string; // Lucide icon name
+}
+
 export interface CompletedProject {
   id: string;
   title: string;

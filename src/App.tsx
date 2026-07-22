@@ -8,6 +8,7 @@ import About from './components/sections/About';
 import Services from './components/sections/Services';
 import CompletedProjects from './components/sections/CompletedProjects';
 import Timeline from './components/sections/Timeline';
+import StatsBar from './components/sections/StatsBar';
 import WhyCAC from './components/sections/WhyCAC';
 import Contact from './components/sections/Contact';
 
@@ -40,17 +41,20 @@ export default function App() {
       {/* Hero Section with animated property graphic */}
       <Hero onBookConsultation={handleBookConsultation} />
 
-      {/* Firm Overview Section */}
-      <About />
-
       {/* 6 Capabilities with expandable forensics drawer */}
       <Services />
 
-      {/* Completed Projects — futuristic neon track-record cards */}
-      <CompletedProjects />
+      {/* Firm Overview Section */}
+      <About />
 
       {/* Interactive Process Stepper with system outputs */}
       <Timeline />
+
+      {/* Headline track-record stats bar */}
+      <StatsBar />
+
+      {/* Completed Projects — futuristic neon track-record cards */}
+      <CompletedProjects />
 
       {/* Why Choose CAC and Vision/Mission offset grid */}
       <WhyCAC />

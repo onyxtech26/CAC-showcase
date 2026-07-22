@@ -7,18 +7,18 @@
   --font-display: "Cinzel", "Playfair Display", Georgia, serif;
   --font-mono: "Space Mono", monospace;
   
-  --color-surface: #ffffff;
-  --color-surface-dim: #f9fafb;
-  --color-surface-bright: #ffffff;
-  --color-surface-container: rgba(255, 255, 255, 0.45);
-  --color-surface-container-low: #f3f4f6;
-  --color-surface-container-high: #f9fafb;
-  --color-surface-container-highest: #e5e7eb;
-  --color-on-surface: #000000;
-  --color-on-surface-variant: #000000;
-  --color-secondary: #13294b;
-  --color-primary-container: #f8fafc;
-  --color-tertiary: #ca8a04;
+  --color-surface: #0a1626;
+  --color-surface-dim: #060d18;
+  --color-surface-bright: #16305a;
+  --color-surface-container: rgba(20, 42, 77, 0.55);
+  --color-surface-container-low: #0f1e38;
+  --color-surface-container-high: #16305a;
+  --color-surface-container-highest: #1c3a6b;
+  --color-on-surface: #f5f7fa;
+  --color-on-surface-variant: #aab7cc;
+  --color-secondary: #4a74c9;
+  --color-primary-container: #101f3d;
+  --color-tertiary: #e3b34d;
 
   --animate-fade-in: fade-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-float: float 7s ease-in-out infinite;
@@ -59,10 +59,10 @@
 }
 
 @utility glass-surface {
-  background: rgba(255, 255, 255, 0.45);
+  background: rgba(20, 38, 68, 0.55);
   backdrop-filter: blur(20px) saturate(140%);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
 }
 
 /* Full-section liquid-glass / glassmorphism panel.
@@ -71,38 +71,38 @@
   position: relative;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.58) 0%,
-    rgba(255, 255, 255, 0.30) 45%,
-    rgba(255, 255, 255, 0.48) 100%
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 45%,
+    rgba(255, 255, 255, 0.04) 100%
   );
   backdrop-filter: blur(28px) saturate(160%);
   -webkit-backdrop-filter: blur(28px) saturate(160%);
-  border-top: 1px solid rgba(255, 255, 255, 0.65);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.75),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.30),
-    0 24px 70px -34px rgba(19, 41, 75, 0.30);
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.03),
+    0 24px 70px -34px rgba(0, 0, 0, 0.55);
 }
 
 @utility forensic-grid {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 50px 50px;
 }
 
 @utility navy-glow {
   &:hover {
-    box-shadow: 0 8px 24px rgba(19, 41, 75, 0.15);
+    box-shadow: 0 8px 24px rgba(74, 116, 201, 0.25);
   }
 }
 
 @utility gold-glow {
-  text-shadow: 0 0 8px rgba(202, 138, 4, 0.2);
+  text-shadow: 0 0 8px rgba(227, 179, 77, 0.35);
 }
 
 @utility fingerprint-bg {
-  background-image: radial-gradient(circle at 50% 50%, rgba(19, 41, 75, 0.02) 0%, transparent 70%);
+  background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
 }
 
 /* ---------- Futuristic / neon kit ---------- */
@@ -193,25 +193,25 @@
 @keyframes navy-glow-blink {
   0%, 100% {
     box-shadow:
-      0 0 0 1px rgba(30, 58, 138, 0.14),
-      0 0 14px -5px rgba(30, 58, 138, 0.20),
-      0 12px 34px -16px rgba(19, 41, 75, 0.16);
+      0 0 0 1px rgba(74, 116, 201, 0.18),
+      0 0 14px -5px rgba(74, 116, 201, 0.25),
+      0 12px 34px -16px rgba(0, 0, 0, 0.35);
   }
   50% {
     box-shadow:
-      0 0 0 1px rgba(46, 84, 210, 0.42),
-      0 0 22px -4px rgba(46, 84, 210, 0.50),
-      0 12px 34px -14px rgba(19, 41, 75, 0.24);
+      0 0 0 1px rgba(94, 140, 230, 0.48),
+      0 0 22px -4px rgba(94, 140, 230, 0.55),
+      0 12px 34px -14px rgba(0, 0, 0, 0.45);
   }
 }
 
 /* Frosted glass card with a pulsing navy neon halo. */
 @utility glass-neon {
   position: relative;
-  background: rgba(255, 255, 255, 0.48);
+  background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(18px) saturate(150%);
   -webkit-backdrop-filter: blur(18px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
   animation: navy-glow-blink 2.8s ease-in-out infinite;
 }
@@ -219,8 +219,8 @@
 /* Soft navy neon glow for numbers on light glass. */
 @utility neon-number-navy {
   text-shadow:
-    0 0 16px rgba(30, 58, 138, 0.30),
-    0 0 34px rgba(46, 84, 210, 0.18);
+    0 0 16px rgba(74, 116, 201, 0.40),
+    0 0 34px rgba(94, 140, 230, 0.24);
 }
 
 /* Blinking luxury-gold neon halo, sits behind a card. */
@@ -347,22 +347,22 @@
     border-radius: 2px;
   }
 
-  /* Premium layered "architectural light" canvas.
+  /* Premium layered "architectural dark" canvas.
      Stacked top→bottom: film grain, fine blueprint grid, ambient navy/gold
      light glows, and a soft vertical sheen. Fixed so it stays put on scroll. */
   body {
     color: var(--color-on-surface);
     overflow-x: hidden;
-    background-color: #f4f6f9;
+    background-color: #060d18;
     background-image:
       /* subtle film grain for tactile depth */
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"),
       /* ambient premium light glows */
-      radial-gradient(900px 620px at 12% -8%, rgba(19, 41, 75, 0.10), transparent 60%),
-      radial-gradient(820px 540px at 108% 4%, rgba(202, 138, 4, 0.07), transparent 55%),
-      radial-gradient(1100px 900px at 50% 118%, rgba(19, 41, 75, 0.08), transparent 62%),
+      radial-gradient(900px 620px at 12% -8%, rgba(74, 116, 201, 0.16), transparent 60%),
+      radial-gradient(820px 540px at 108% 4%, rgba(227, 179, 77, 0.10), transparent 55%),
+      radial-gradient(1100px 900px at 50% 118%, rgba(74, 116, 201, 0.12), transparent 62%),
       /* base vertical sheen */
-      linear-gradient(180deg, #ffffff 0%, #f3f6fa 55%, #eaeef5 100%);
+      linear-gradient(180deg, #0d1b33 0%, #0a1626 55%, #060d18 100%);
     background-size:
       140px 140px,
       100% 100%,

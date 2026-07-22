@@ -29,16 +29,16 @@ export default function About() {
           className="space-y-6"
         >
           <div>
-            <span className="font-mono text-xs text-secondary uppercase tracking-[0.25em] block mb-3">
+            <span className="font-mono text-xs text-tertiary uppercase tracking-[0.25em] block mb-3">
               // The Firm
             </span>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-on-surface leading-tight">
-              Integrated Property, Estate &<br />
-              <span className="font-medium text-secondary font-display">Forensic Advisory</span>
+              Property Forensic Investigation<br />
+              <span className="font-medium text-tertiary font-display">for Family Estates</span>
             </h2>
           </div>
 
-          <div className="relative pl-6 border-l border-secondary/30 my-6 py-1">
+          <div className="relative pl-6 border-l border-tertiary/30 my-6 py-1">
             <p className="font-sans text-lg sm:text-xl text-on-surface-variant/90 italic leading-relaxed font-light">
               "Clarity before commitment. Evidence before decision."
             </p>
@@ -46,16 +46,16 @@ export default function About() {
 
           <div className="space-y-4 font-sans text-on-surface-variant text-sm sm:text-base font-light leading-relaxed">
             <p>
-              Established in 2009 and incorporated in 2020, Conglomerate Appraisal Consultancy (CAC) is a Malaysian property appraisal and forensic consultancy specialising in the valuation, due diligence and strategic acquisition of residential and land assets across Johor &amp; All of Malaysia.
+              Established in 2009 and incorporated in 2020, Conglomerate Appraisal Consultancy (CAC) is a Malaysian property forensic consultancy specialising in tracing, verifying and documenting the ownership, history, legal status and movement of assets belonging to family estates across Johor &amp; All of Malaysia.
             </p>
             <p>
-              We combine rigorous, evidence-led appraisal — our property forensic discipline — with hands-on acquisition execution. Every deal we underwrite is supported by independent valuation, title verification and a defensible exit thesis.
+              Whether a small estate of a single family home or a large estate spanning multiple properties, companies and trusts, our objective is the same: establish true ownership based on documentary evidence, historical records and factual investigation — so families can resolve inheritance disputes, missing assets and questionable transfers with confidence.
             </p>
           </div>
 
           <div className="flex items-center gap-3 text-tertiary font-mono text-xs tracking-wider pt-4">
             <ShieldCheck className="w-5 h-5 text-tertiary" />
-            <span className="uppercase tracking-[0.15em] font-semibold">Regulated Professional Standards</span>
+            <span className="uppercase tracking-[0.15em] font-semibold">Independent &amp; Evidence-Based</span>
           </div>
         </motion.div>
 

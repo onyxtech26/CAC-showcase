@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
-  Building2,
-  Scale,
   Compass,
-  Briefcase,
   Search,
   FileSignature,
   ArrowRight,
   CheckCircle2,
   X,
-  Fingerprint
+  Fingerprint,
+  ShieldAlert,
+  Coins,
+  Handshake
 } from 'lucide-react';
 import { SERVICES } from '../../data';
 import { Service } from '../../types';
@@ -36,18 +36,18 @@ export default function Services() {
   // Map icon strings to Lucide icon components
   const getIcon = (iconName: string) => {
     switch (iconName) {
-      case 'Building2': return Building2;
-      case 'Scale': return Scale;
+      case 'Fingerprint': return Fingerprint;
       case 'Compass': return Compass;
-      case 'Briefcase': return Briefcase;
-      case 'SearchCode': return Fingerprint;
       case 'FileSignature': return FileSignature;
+      case 'ShieldAlert': return ShieldAlert;
+      case 'Coins': return Coins;
+      case 'Handshake': return Handshake;
       default: return Search;
     }
   };
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-transparent relative overflow-hidden border-y border-black/5">
+    <section id="services" className="py-16 md:py-24 bg-transparent relative overflow-hidden border-y border-white/5">
       <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 xl:px-20">
 
         {/* Header */}
@@ -59,10 +59,10 @@ export default function Services() {
           className="text-center mb-16 md:mb-20"
         >
           <span className="font-mono text-xs text-tertiary uppercase tracking-[0.25em] block mb-3">
-            // Forensic Capabilities
+            // Our Services
           </span>
           <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-on-surface">
-            Specialized <span className="text-tertiary">Service</span> Portfolio
+            Property Forensic <span className="text-tertiary">Investigation</span> Services
           </h3>
         </motion.div>
 
@@ -126,7 +126,7 @@ export default function Services() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
               onClick={() => setSelectedService(null)}
-              className="absolute inset-0 bg-black/50 backdrop-blur-md"
+              className="absolute inset-0 bg-black/70 backdrop-blur-md"
             />
 
             {/* Centered pop-up modal */}
@@ -138,7 +138,7 @@ export default function Services() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 12, transition: { duration: 0.16, ease: 'easeIn' } }}
               transition={{ type: 'spring', damping: 26, stiffness: 280 }}
-              className="relative w-full max-w-2xl max-h-[88vh] bg-white/95 backdrop-blur-2xl border border-black/10 p-6 sm:p-10 overflow-y-auto no-scrollbar flex flex-col shadow-2xl z-10"
+              className="relative w-full max-w-2xl max-h-[88vh] bg-surface/95 backdrop-blur-2xl border border-white/10 p-6 sm:p-10 overflow-y-auto no-scrollbar flex flex-col shadow-2xl z-10"
             >
               <div>
                 {/* Header controls */}
@@ -152,7 +152,7 @@ export default function Services() {
                   <button
                     onClick={() => setSelectedService(null)}
                     aria-label="Close"
-                    className="p-1.5 border border-black/10 bg-black/5 hover:border-black/25 hover:rotate-90 transition-all duration-300 text-on-surface-variant hover:text-on-surface"
+                    className="p-1.5 border border-white/10 bg-white/5 hover:border-white/25 hover:rotate-90 transition-all duration-300 text-on-surface-variant hover:text-on-surface"
                   >
                     <X className="w-4 h-4" />
                   </button>
@@ -165,7 +165,7 @@ export default function Services() {
                       {selectedService.title}
                     </h3>
                     <p className="font-sans text-sm text-secondary font-mono mt-1 uppercase tracking-wider">
-                      Specialized Appraisal Capability
+                      Specialized Investigation Discipline
                     </p>
                   </div>
 
@@ -175,7 +175,7 @@ export default function Services() {
 
                   {/* Investigation Path Timeline */}
                   <div className="space-y-4">
-                    <h4 className="font-mono text-xs text-secondary uppercase tracking-widest font-semibold border-b border-black/10 pb-2">
+                    <h4 className="font-mono text-xs text-secondary uppercase tracking-widest font-semibold border-b border-white/10 pb-2">
                       // Tactical Audit Checklist
                     </h4>
                     <motion.div
@@ -207,7 +207,7 @@ export default function Services() {
               </div>
 
               {/* Action */}
-              <div className="pt-8 mt-8 border-t border-black/10">
+              <div className="pt-8 mt-8 border-t border-white/10">
                 <a
                   href="#contact"
                   onClick={() => setSelectedService(null)}
