@@ -75,6 +75,22 @@ export default function Navbar({ onOpenInquiryLog }: NavbarProps) {
     { name: 'Why CAC', href: '#why-cac', id: 'why-cac' },
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    if (targetId === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    if (window.history.replaceState) {
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+  };
+
   return (
     <>
       <nav
@@ -86,9 +102,10 @@ export default function Navbar({ onOpenInquiryLog }: NavbarProps) {
         {/* Moving neon light travelling around the navbar pill border */}
         <span className="neon-ring" aria-hidden="true" />
 
-        {/* Logo — click scrolls to top */}
+        {/* Logo — click scrolls to top cleanly */}
         <a
-          href="#home"
+          href="/"
+          onClick={(e) => handleNavClick(e, 'home')}
           aria-label="CAC — back to top"
           className="flex items-center group select-none"
         >
@@ -105,6 +122,7 @@ export default function Navbar({ onOpenInquiryLog }: NavbarProps) {
             <a
               key={link.id}
               href={link.href}
+              onClick={(e) => handleNavClick(e, link.id)}
               className={`hover:text-tertiary transition-all duration-300 relative py-1 ${activeSection === link.id ? 'text-secondary font-semibold font-mono' : ''
                 }`}
             >
@@ -211,7 +229,7 @@ export default function Navbar({ onOpenInquiryLog }: NavbarProps) {
               <a
                 key={link.id}
                 href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, link.id)}
                 className={`py-4 border-b border-secondary/5 flex justify-between items-center ${activeSection === link.id ? 'text-tertiary font-bold' : 'text-on-surface-variant'
                   }`}
               >
