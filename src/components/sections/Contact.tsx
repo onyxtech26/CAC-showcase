@@ -261,14 +261,24 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
                         </p>
                       </div>
                       <p className="font-sans text-xs text-on-surface-variant font-light max-w-sm leading-relaxed mx-auto">
-                        Your inquiry has been sent securely to our team and logged as a lead. Forensic Consultant Mohaan will review your case and contact you within 24 hours.
+                        Your inquiry has been logged with reference <strong className="font-mono text-secondary">{issuedTrackingCode}</strong>. Connect directly with Senior Consultant Mohaan via WhatsApp for urgent priority handling:
                       </p>
-                      <button
-                        onClick={() => setSubmissionStage('idle')}
-                        className="font-mono text-[10px] text-secondary hover:text-on-surface uppercase border border-secondary/20 bg-secondary/5 hover:bg-secondary/10 px-4 py-2 tracking-widest font-bold"
-                      >
-                        Dismiss Overlay
-                      </button>
+                      <div className="flex flex-col gap-2 pt-2 max-w-xs mx-auto">
+                        <a
+                          href={whatsappLink(`Hello CAC, I just submitted an inquiry (${issuedTrackingCode}) regarding ${service}. My Name: ${fullName}, Phone: ${phoneNumber}. Details: ${briefInquiry}`)}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="btn-premium bg-[#25D366] text-white py-3 text-center font-mono text-xs uppercase font-bold tracking-wider hover:bg-[#20ba59] flex items-center justify-center gap-2 shadow-sm"
+                        >
+                          <MessageSquare className="w-4 h-4" /> Send via WhatsApp
+                        </a>
+                        <button
+                          onClick={() => setSubmissionStage('idle')}
+                          className="font-mono text-[10px] text-on-surface-variant/70 hover:text-on-surface uppercase border border-secondary/15 hover:border-secondary/30 bg-transparent px-4 py-2 tracking-widest"
+                        >
+                          Submit Another Inquiry
+                        </button>
+                      </div>
                     </motion.div>
                   )}
 
