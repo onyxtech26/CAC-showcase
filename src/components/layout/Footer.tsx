@@ -170,8 +170,8 @@ export default function Footer() {
 
       {/* Copy fine print */}
       <div className="relative z-10 max-w-[1440px] mx-auto mt-6 flex flex-col sm:flex-row justify-between items-center font-mono text-[9px] text-on-surface-variant/40 gap-4">
-        <div className="flex items-center gap-2">
-          <span>Powered by</span>
+        <div className="flex items-center gap-2.5">
+          <span className="font-mono text-[10px] text-on-surface-variant/60">Powered by</span>
           <a
             href="https://onyxx-tech.vercel.app/"
             target="_blank"
@@ -181,7 +181,7 @@ export default function Footer() {
             <img
               src="/assets/onyxx-tech-logo.png"
               alt="Onyxx Tech"
-              className="h-4 sm:h-5 w-auto object-contain"
+              className="h-6 sm:h-7 md:h-8 w-auto object-contain"
             />
           </a>
         </div>
