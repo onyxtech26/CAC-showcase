@@ -1,10 +1,15 @@
 import { motion } from 'motion/react';
 import { ShieldCheck, History, Award, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/utils/SEO';
 
 export default function AboutPage() {
   return (
     <div className="pt-28 pb-20 px-6 md:px-12 xl:px-20 max-w-[1440px] mx-auto space-y-16">
+      <SEO
+        title="About Our Firm"
+        description="Learn about Conglomerate Appraisal Consultancy (CAC) — 15+ years of estate forensics, pioneer land tracing, and High-Court evidence verification."
+      />
       
       {/* Page Header Header */}
       <motion.div

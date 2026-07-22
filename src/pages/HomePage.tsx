@@ -6,6 +6,8 @@ import Contact from '../components/sections/Contact';
 import { SERVICES, COMPLETED_PROJECTS } from '../data';
 import { ShieldCheck, ArrowRight, ChevronRight, FileSearch, Layers } from 'lucide-react';
 
+import SEO from '../components/utils/SEO';
+
 interface HomePageProps {
   onInquirySubmitted: () => void;
 }
@@ -24,6 +26,10 @@ export default function HomePage({ onInquirySubmitted }: HomePageProps) {
 
   return (
     <div className="space-y-16 md:space-y-24">
+      <SEO
+        title="Property Forensic Investigation & Family Estate Recovery"
+        description="Independent property forensic investigation, land registry tracing, and historical title verification across Johor & Malaysia."
+      />
       {/* 1. Hero Section */}
       <Hero onBookConsultation={handleBookConsultation} />
 
