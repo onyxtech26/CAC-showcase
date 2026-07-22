@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 // @ts-ignore
 import propertyLottie from '../../assets/property.lottie?url';
@@ -10,10 +11,6 @@ interface HeroProps {
 
 export default function Hero({ onBookConsultation }: HeroProps) {
   const sectionRef = useRef<HTMLElement | null>(null);
-
-  const scrollToServices = () => {
-    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   // Scroll-linked parallax: image drifts up, text drifts gently, both fade.
   const { scrollYProgress } = useScroll({
@@ -83,20 +80,18 @@ export default function Hero({ onBookConsultation }: HeroProps) {
           </div>
 
           <div className="flex flex-wrap gap-4 pt-4">
-            <motion.button
-              onClick={scrollToServices}
-              whileTap={{ scale: 0.97 }}
-              className="btn-premium w-full sm:w-auto bg-tertiary text-surface px-8 py-4 font-mono text-xs uppercase font-semibold tracking-wider hover:bg-[#f0c368] border border-tertiary shadow-lg hover:shadow-tertiary/25"
+            <Link
+              to="/services"
+              className="btn-premium w-full sm:w-auto bg-tertiary text-surface px-8 py-4 font-mono text-xs uppercase font-semibold tracking-wider hover:bg-[#f0c368] border border-tertiary shadow-lg hover:shadow-tertiary/25 text-center inline-flex items-center justify-center"
             >
               Our Services
-            </motion.button>
-            <motion.button
-              onClick={onBookConsultation}
-              whileTap={{ scale: 0.97 }}
-              className="btn-premium w-full sm:w-auto bg-transparent text-on-surface px-8 py-4 font-mono text-xs uppercase font-semibold tracking-wider hover:bg-secondary/5 border border-secondary/25 hover:border-secondary/50"
+            </Link>
+            <Link
+              to="/contact"
+              className="btn-premium w-full sm:w-auto bg-transparent text-on-surface px-8 py-4 font-mono text-xs uppercase font-semibold tracking-wider hover:bg-secondary/5 border border-secondary/25 hover:border-secondary/50 text-center inline-flex items-center justify-center"
             >
               Contact Us
-            </motion.button>
+            </Link>
           </div>
         </motion.div>
 
