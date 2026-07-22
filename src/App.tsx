@@ -15,6 +15,8 @@ import TrackRecordPage from './pages/TrackRecordPage';
 import WhyCACPage from './pages/WhyCACPage';
 import ContactPage from './pages/ContactPage';
 
+import ScrollToTop from './components/utils/ScrollToTop';
+
 export default function App() {
   const [isInquiryLogOpen, setIsInquiryLogOpen] = useState(false);
 
@@ -28,6 +30,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="min-h-screen bg-transparent text-on-surface font-sans selection:bg-secondary selection:text-surface flex flex-col justify-between">
         {/* Static premium land-survey graphic background */}
         <PremiumBackground />
