@@ -57,7 +57,7 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* Right Side Visual: Clean Floating 3D Building (No Holographic Overlay) */}
+        {/* Right Side Visual: Executive Portrait Card */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -65,20 +65,47 @@ export default function About() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative flex items-center justify-center"
         >
-          <div className="aspect-square relative w-full animate-float">
-            {/* Soft subtle ambient shadow glow behind floating building */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] rounded-full bg-tertiary/10 blur-[80px] pointer-events-none" />
+          <div className="relative w-full max-w-[460px] mx-auto animate-float">
+            {/* Soft subtle ambient shadow glow behind portrait */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] h-[85%] rounded-full bg-tertiary/15 blur-[90px] pointer-events-none" />
 
-            {/* User Uploaded Floating 3D Modern Estate */}
+            {/* Premium Framed Executive Portrait Container */}
             <motion.div
               style={{ y: imageY }}
-              className="relative z-10 w-full h-full flex items-center justify-center pointer-events-none select-none p-2"
+              className="relative z-10 overflow-hidden rounded-2xl border border-tertiary/35 bg-surface/90 shadow-[0_25px_60px_rgba(0,0,0,0.4)] backdrop-blur-md transition-transform duration-700 hover:border-tertiary/60"
             >
-              <img
-                src="/assets/user-house-3d.png"
-                alt="CAC Modern 3D Luxury Family Estate Model"
-                className="w-full max-h-[580px] lg:max-h-[640px] object-contain scale-105 md:scale-110 lg:scale-115 filter drop-shadow-[0_25px_50px_rgba(202,138,4,0.35)] transition-transform duration-700 hover:scale-120"
-              />
+              {/* Executive Portrait Image */}
+              <div className="relative w-full aspect-[4/5] overflow-hidden bg-secondary/10">
+                <img
+                  src="/assets/founder-portrait.png"
+                  alt="Principal Property Forensic Investigator - CAC"
+                  className="w-full h-full object-cover object-top filter brightness-[1.02] contrast-[1.03] transition-transform duration-700 hover:scale-105"
+                />
+                
+                {/* Gradient vignette for seamless text integration */}
+                <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent opacity-90" />
+              </div>
+
+              {/* Executive Title & Credentials Overlay Card */}
+              <div className="absolute bottom-0 inset-x-0 p-6 space-y-2 bg-gradient-to-t from-surface via-surface/95 to-transparent">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-5 h-5 text-tertiary shrink-0" />
+                  <span className="font-mono text-[11px] text-tertiary uppercase tracking-[0.2em] font-semibold">
+                    Principal Forensic Investigator
+                  </span>
+                </div>
+                <h3 className="font-display text-xl font-bold text-on-surface tracking-tight">
+                  Conglomerate Appraisal Consultancy
+                </h3>
+                <p className="font-sans text-xs text-on-surface-variant/80 font-light leading-relaxed">
+                  Leading complex estate asset recovery, title deed verification, and high-court legal evidence compilation across Malaysia.
+                </p>
+                
+                <div className="pt-2 flex items-center gap-2 font-mono text-[10px] text-tertiary/90 uppercase tracking-widest border-t border-tertiary/15 mt-3">
+                  <span className="w-2 h-2 rounded-full bg-tertiary animate-pulse" />
+                  <span>17+ Years Forensic Expertise • Johor &amp; All Malaysia</span>
+                </div>
+              </div>
             </motion.div>
           </div>
         </motion.div>
