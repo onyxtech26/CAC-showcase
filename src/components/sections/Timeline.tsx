@@ -8,6 +8,7 @@ interface Step {
   label: string;
   sub: string;
   icon: any;
+  image3d: string;
   details: string;
   deliverables: string[];
 }
@@ -18,6 +19,7 @@ const STEPS: Step[] = [
     label: 'Consultation',
     sub: 'Case Briefing',
     icon: Users,
+    image3d: '/assets/process-step-1-3d.webp',
     details: 'We begin by understanding your concerns, reviewing available family records, and establishing the exact scope of property, assets, and individuals under investigation.',
     deliverables: [
       'Understanding of case history & objectives',
@@ -30,6 +32,7 @@ const STEPS: Step[] = [
     label: 'Evidence Collection',
     sub: 'Document Gathering',
     icon: FileSearch,
+    image3d: '/assets/process-step-2-3d.webp',
     details: 'We gather all available property deeds, historical maps, wills, probate files, bank records, and land registry records from public and private archives.',
     deliverables: [
       'Land office register searches & title extraction',
@@ -42,6 +45,7 @@ const STEPS: Step[] = [
     label: 'Historical Research',
     sub: 'Chain Reconstruction',
     icon: Archive,
+    image3d: '/assets/process-step-3-3d.webp',
     details: 'We reconstruct the complete ownership chronology, tracing back to pioneer owners and checking every transition (sales, inheritance, gifts) for validity.',
     deliverables: [
       'Pioneer ownership records and original grants verified',
@@ -54,6 +58,7 @@ const STEPS: Step[] = [
     label: 'Intelligence Analysis',
     sub: 'Forensic Review',
     icon: Fingerprint,
+    image3d: '/assets/process-step-4-3d.webp',
     details: 'We analyze all collected data, identifying forged documents, unauthorized land sales, hidden beneficiaries, or irregularities in estate distribution.',
     deliverables: [
       'Exposing signatures, wills, or deeds with indicators of forgery',
@@ -66,6 +71,7 @@ const STEPS: Step[] = [
     label: 'Forensic Reporting',
     sub: 'Evidence Synthesis',
     icon: FileText,
+    image3d: '/assets/process-step-5-3d.webp',
     details: 'We prepare an independent Property Forensic Investigation Report with clear findings, verified chronologies, and evidence packages structured for legal use.',
     deliverables: [
       'Professional Forensic Investigation Report delivered',
@@ -78,6 +84,7 @@ const STEPS: Step[] = [
     label: 'Legal Coordination',
     sub: 'Expert Referrals',
     icon: Scale,
+    image3d: '/assets/process-step-6-3d.webp',
     details: 'We coordinate with probate or property attorneys and prepare evidence files, ensuring our findings are effectively leveraged for legal success.',
     deliverables: [
       'Referrals to elite, specialized estate and land lawyers',
@@ -90,6 +97,7 @@ const STEPS: Step[] = [
     label: 'Resolution',
     sub: 'Estate Recovery',
     icon: CheckCircle2,
+    image3d: '/assets/process-step-7-3d.webp',
     details: 'We support the execution of distribution orders, registration of recovered assets, and resolution of beneficiary claims under legal guidance.',
     deliverables: [
       'Registration of correct ownership titles at land office',
@@ -102,6 +110,7 @@ const STEPS: Step[] = [
     label: 'Property Sale',
     sub: 'Asset Monetization',
     icon: Home,
+    image3d: '/assets/process-step-8-3d.webp',
     details: 'Once assets are legally recovered, we assist with property valuations, ROI renovation consultancy, buyer-matching, and sale coordination.',
     deliverables: [
       'Detailed property condition & appraisal valuation support',
@@ -230,24 +239,23 @@ export default function Timeline() {
                       </svg>
                     )}
 
-                    {/* Inner Solid Diamond */}
+                    {/* Inner Diamond with 3D Transparent Icon */}
                     <motion.div
-                      whileHover={{ scale: 1.15, rotate: 45 }}
-                      animate={{ rotate: 45 }}
-                      transition={{ duration: 0.2 }}
-                      className={`w-7 h-7 border transition-all duration-300 relative z-10 flex items-center justify-center ${isActive
+                      whileHover={{ scale: 1.2 }}
+                      className={`w-9 h-9 rounded-xl border transition-all duration-300 relative z-10 flex items-center justify-center p-1.5 shadow-sm backdrop-blur-sm ${isActive
                           ? isHighlight
-                            ? 'bg-tertiary border-tertiary shadow-[0_0_15px_rgba(202,138,4,0.4)]'
-                            : 'bg-secondary border-secondary shadow-[0_0_15px_rgba(19,41,75,0.4)]'
-                          : 'bg-surface-container-high border-secondary/40 group-hover:bg-secondary/10 group-hover:border-secondary'
+                            ? 'bg-gradient-to-br from-tertiary/25 to-tertiary/10 border-tertiary shadow-[0_0_18px_rgba(202,138,4,0.4)]'
+                            : 'bg-gradient-to-br from-secondary/25 to-secondary/10 border-secondary shadow-[0_0_18px_rgba(19,41,75,0.35)]'
+                          : 'bg-surface-container-high/80 border-secondary/25 group-hover:bg-secondary/10 group-hover:border-secondary/60'
                         }`}
                     >
-                      <StepIcon
+                      <img
+                        src={step.image3d}
+                        alt=""
                         aria-hidden="true"
-                        className={`w-3.5 h-3.5 -rotate-45 transition-colors duration-300 ${
-                          isActive ? 'text-white' : 'text-secondary/60 group-hover:text-secondary'
+                        className={`w-full h-full object-contain transition-all duration-300 ${
+                          isActive ? 'scale-110 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]' : 'opacity-85 group-hover:opacity-100 group-hover:scale-110'
                         }`}
-                        strokeWidth={1.8}
                       />
                     </motion.div>
                   </div>
@@ -287,14 +295,18 @@ export default function Timeline() {
             <div className="md:col-span-2 space-y-4">
               <div className="flex items-center gap-4">
                 <div
-                  className={`w-12 h-12 shrink-0 border flex items-center justify-center ${
+                  className={`w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-2xl border flex items-center justify-center p-2.5 backdrop-blur-xl transition-all shadow-md ${
                     activeStep.id === 3
-                      ? 'border-tertiary/30 bg-tertiary/10 text-tertiary'
-                      : 'border-secondary/20 bg-secondary/5 text-secondary'
+                      ? 'border-tertiary/40 bg-gradient-to-br from-tertiary/20 via-secondary/10 to-tertiary/5 shadow-[0_0_24px_rgba(202,138,4,0.25)]'
+                      : 'border-secondary/25 bg-gradient-to-br from-secondary/15 via-surface/40 to-secondary/5 shadow-[0_0_20px_rgba(19,41,75,0.15)]'
                   }`}
                   aria-hidden="true"
                 >
-                  <ActiveStepIcon className="w-5 h-5" strokeWidth={1.7} />
+                  <img
+                    src={activeStep.image3d}
+                    alt={`${activeStep.label} 3D Asset`}
+                    className="w-full h-full object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.2)] animate-float"
+                  />
                 </div>
                 <div className="min-w-0">
                   <span className="font-mono text-xs text-secondary font-bold px-2 py-0.5 border border-secondary/30 bg-secondary/5 inline-block">
