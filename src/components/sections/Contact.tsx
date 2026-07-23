@@ -267,7 +267,7 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
                         <a
                           href={whatsappLink(`Hello CAC, I just submitted an inquiry (${issuedTrackingCode}) regarding ${service}. My Name: ${fullName}, Phone: ${phoneNumber}. Details: ${briefInquiry}`)}
                           target="_blank"
-                          rel="noreferrer"
+                          rel="noopener noreferrer"
                           className="btn-premium bg-[#25D366] text-white py-3 text-center font-mono text-xs uppercase font-bold tracking-wider hover:bg-[#20ba59] flex items-center justify-center gap-2 shadow-sm"
                         >
                           <MessageSquare className="w-4 h-4" /> Send via WhatsApp

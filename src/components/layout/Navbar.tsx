@@ -172,7 +172,7 @@ export default function Navbar({ onOpenInquiryLog }: NavbarProps) {
                     role="menuitem"
                     href={whatsappLink()}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     onClick={() => setConsultOpen(false)}
                     className="flex items-center gap-3.5 px-4 py-3.5 hover:bg-tertiary/10 transition-colors duration-200 group/opt"
                   >
@@ -251,7 +251,7 @@ export default function Navbar({ onOpenInquiryLog }: NavbarProps) {
               <a
                 href={whatsappLink()}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full bg-[#25D366] text-white py-4 text-center font-mono text-xs uppercase font-semibold transition-all hover:bg-[#20ba59] active:scale-95 duration-200 flex items-center justify-center gap-2"
               >
