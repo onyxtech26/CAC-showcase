@@ -239,22 +239,24 @@ export default function Timeline() {
                       </svg>
                     )}
 
-                    {/* Inner Diamond with 3D Transparent Icon */}
+                    {/* Floating 3D Transparent Icon (No background box, larger size) */}
                     <motion.div
-                      whileHover={{ scale: 1.2 }}
-                      className={`w-9 h-9 rounded-xl border transition-all duration-300 relative z-10 flex items-center justify-center p-1.5 shadow-sm backdrop-blur-sm ${isActive
-                          ? isHighlight
-                            ? 'bg-gradient-to-br from-tertiary/25 to-tertiary/10 border-tertiary shadow-[0_0_18px_rgba(202,138,4,0.4)]'
-                            : 'bg-gradient-to-br from-secondary/25 to-secondary/10 border-secondary shadow-[0_0_18px_rgba(19,41,75,0.35)]'
-                          : 'bg-surface-container-high/80 border-secondary/25 group-hover:bg-secondary/10 group-hover:border-secondary/60'
-                        }`}
+                      whileHover={{ scale: 1.25 }}
+                      className="relative z-10 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center select-none"
                     >
+                      {isActive && (
+                        <div className={`absolute inset-0 rounded-full blur-md ${
+                          isHighlight ? 'bg-tertiary/30' : 'bg-secondary/25'
+                        }`} />
+                      )}
                       <img
                         src={step.image3d}
                         alt=""
                         aria-hidden="true"
-                        className={`w-full h-full object-contain transition-all duration-300 ${
-                          isActive ? 'scale-110 drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]' : 'opacity-85 group-hover:opacity-100 group-hover:scale-110'
+                        className={`relative z-10 w-full h-full object-contain transition-all duration-300 ${
+                          isActive
+                            ? 'scale-110 filter drop-shadow-[0_6px_14px_rgba(202,138,4,0.4)]'
+                            : 'opacity-80 group-hover:opacity-100 group-hover:scale-115 filter drop-shadow-[0_4px_8px_rgba(0,0,0,0.2)]'
                         }`}
                       />
                     </motion.div>
@@ -293,19 +295,17 @@ export default function Timeline() {
           >
             {/* Step summary column */}
             <div className="md:col-span-2 space-y-4">
-              <div className="flex items-center gap-4">
-                <div
-                  className={`w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-2xl border flex items-center justify-center p-2.5 backdrop-blur-xl transition-all shadow-md ${
-                    activeStep.id === 3
-                      ? 'border-tertiary/40 bg-gradient-to-br from-tertiary/20 via-secondary/10 to-tertiary/5 shadow-[0_0_24px_rgba(202,138,4,0.25)]'
-                      : 'border-secondary/25 bg-gradient-to-br from-secondary/15 via-surface/40 to-secondary/5 shadow-[0_0_20px_rgba(19,41,75,0.15)]'
-                  }`}
-                  aria-hidden="true"
-                >
+              <div className="flex items-center gap-4 sm:gap-6">
+                {/* Clean, Floating 3D Transparent Icon with Spotlight (No Box Background, Much Larger) */}
+                <div className="relative shrink-0 flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 select-none pointer-events-none">
+                  {/* Subtle ambient light glow behind 3D asset */}
+                  <div className={`absolute inset-0 rounded-full blur-2xl pointer-events-none ${
+                    activeStep.id === 3 ? 'bg-tertiary/30' : 'bg-secondary/25'
+                  }`} />
                   <img
                     src={activeStep.image3d}
                     alt={`${activeStep.label} 3D Asset`}
-                    className="w-full h-full object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.2)] animate-float"
+                    className="relative z-10 w-full h-full object-contain filter drop-shadow-[0_12px_24px_rgba(0,0,0,0.35)] animate-float"
                   />
                 </div>
                 <div className="min-w-0">
