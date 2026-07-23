@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   Search,
@@ -621,12 +622,12 @@ export default function IntelligenceHub() {
           <span className="font-sans text-xs text-on-surface-variant font-light">
             Need a custom title scan or estate recovery feasibility plan?
           </span>
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="font-mono text-xs text-tertiary hover:text-white uppercase tracking-wider font-semibold flex items-center gap-1.5 transition-colors"
           >
             Start An Inquiry <ChevronRight className="w-4 h-4" />
-          </a>
+          </Link>
         </div>
 
       </div>
