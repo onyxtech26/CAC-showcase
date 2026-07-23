@@ -75,23 +75,23 @@ export default function PremiumBackground() {
           </radialGradient>
           {/* Fine technical grid */}
           <pattern id="pb-grid" width="44" height="44" patternUnits="userSpaceOnUse">
-            <path d="M 44 0 L 0 0 0 44" fill="none" stroke="#13294b" strokeWidth="1" strokeOpacity="0.055" />
+            <path d="M 44 0 L 0 0 0 44" fill="none" stroke="#13294b" strokeWidth="1" strokeOpacity="0.1" />
           </pattern>
           {/* Coarse survey grid */}
           <pattern id="pb-grid-lg" width="220" height="220" patternUnits="userSpaceOnUse">
-            <path d="M 220 0 L 0 0 0 220" fill="none" stroke="#13294b" strokeWidth="1.4" strokeOpacity="0.09" />
+            <path d="M 220 0 L 0 0 0 220" fill="none" stroke="#13294b" strokeWidth="1.4" strokeOpacity="0.16" />
           </pattern>
           {/* Ambient light washes */}
           <radialGradient id="pb-navy-tl" cx="12%" cy="0%" r="60%">
-            <stop offset="0%" stopColor="#13294b" stopOpacity="0.08" />
+            <stop offset="0%" stopColor="#13294b" stopOpacity="0.14" />
             <stop offset="100%" stopColor="#13294b" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="pb-gold-tr" cx="100%" cy="4%" r="55%">
-            <stop offset="0%" stopColor="#a8791f" stopOpacity="0.09" />
+            <stop offset="0%" stopColor="#a8791f" stopOpacity="0.16" />
             <stop offset="100%" stopColor="#a8791f" stopOpacity="0" />
           </radialGradient>
           <radialGradient id="pb-navy-b" cx="50%" cy="115%" r="60%">
-            <stop offset="0%" stopColor="#13294b" stopOpacity="0.07" />
+            <stop offset="0%" stopColor="#13294b" stopOpacity="0.13" />
             <stop offset="100%" stopColor="#13294b" stopOpacity="0" />
           </radialGradient>
           {/* Centre focal lift for readability */}
@@ -107,26 +107,26 @@ export default function PremiumBackground() {
         <rect width={VW} height={VH} fill="url(#pb-grid-lg)" />
 
         {/* Topographic contour lines */}
-        <g fill="none" stroke="#13294b" strokeWidth="1.25" strokeOpacity="0.07">
+        <g fill="none" stroke="#13294b" strokeWidth="1.25" strokeOpacity="0.12">
           {contours.map((d, i) => (
             <path key={i} d={d} />
           ))}
         </g>
         {/* Gold accent contours for warmth */}
-        <g fill="none" stroke="#a8791f" strokeWidth="1.4" strokeOpacity="0.10">
+        <g fill="none" stroke="#a8791f" strokeWidth="1.6" strokeOpacity="0.2">
           <path d={contours[7]} />
           <path d={contours[13]} />
         </g>
 
         {/* Concentric survey rings + crosshair (echoes the lens motif) */}
-        <g fill="none" stroke="#13294b" strokeOpacity="0.12" strokeWidth="1.25">
+        <g fill="none" stroke="#13294b" strokeOpacity="0.2" strokeWidth="1.25">
           {[80, 170, 275, 400].map((r) => (
             <circle key={r} cx={ringCx} cy={ringCy} r={r} />
           ))}
         </g>
-        <line x1={ringCx - 440} y1={ringCy} x2={ringCx + 440} y2={ringCy} stroke="#13294b" strokeWidth="1" strokeOpacity="0.10" />
-        <line x1={ringCx} y1={ringCy - 440} x2={ringCx} y2={ringCy + 440} stroke="#13294b" strokeWidth="1" strokeOpacity="0.10" />
-        <circle cx={ringCx} cy={ringCy} r="6" fill="#a8791f" fillOpacity="0.6" />
+        <line x1={ringCx - 440} y1={ringCy} x2={ringCx + 440} y2={ringCy} stroke="#13294b" strokeWidth="1" strokeOpacity="0.16" />
+        <line x1={ringCx} y1={ringCy - 440} x2={ringCx} y2={ringCy + 440} stroke="#13294b" strokeWidth="1" strokeOpacity="0.16" />
+        <circle cx={ringCx} cy={ringCy} r="7" fill="#a8791f" fillOpacity="0.75" />
 
         {/* Centre focal wash to keep content readable */}
         <rect width={VW} height={VH} fill="url(#pb-focus)" />

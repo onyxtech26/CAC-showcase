@@ -4,7 +4,7 @@ export const SERVICES: Service[] = [
   {
     id: 'property-forensic',
     iconName: 'Fingerprint',
-    imageUrl: '/assets/icon-ownership-3d-floating.png',
+    imageUrl: '/assets/icon-ownership-3d-floating.webp',
     title: 'Property Forensic Investigation',
     description: 'Systematic analysis of land titles, deeds, and historical records to establish true, pioneer ownership and trace succession lines.',
     detailedDescription: 'We conduct independent property forensic audits by researching historical registry books, colonial grants, surveyor cadastrals, and local archives. Our findings map succession chains, clarify heir validity, and compile evidence packages designed to stand up in judicial and state arbitration processes.',
@@ -19,7 +19,7 @@ export const SERVICES: Service[] = [
   {
     id: 'family-estate',
     iconName: 'Users',
-    imageUrl: '/assets/icon-ownership-3d-floating.png',
+    imageUrl: '/assets/icon-ownership-3d-floating.webp',
     title: 'Family Estate Investigation',
     description: 'Resolving complex estate disputes among heirs by tracing hidden assets, verifying beneficiaries, and clarifying distribution paths.',
     detailedDescription: 'When family estates are contested or lack clear administration, our agents step in. We research family genealogies, identify all lawful beneficiaries (including missing or unnotified heirs), uncover undisclosed or hidden inherited assets, and provide administration support for probate filings.',
@@ -34,7 +34,7 @@ export const SERVICES: Service[] = [
   {
     id: 'property-intelligence',
     iconName: 'Globe',
-    imageUrl: '/assets/icon-missing-3d-floating.png',
+    imageUrl: '/assets/icon-missing-3d-floating.webp',
     title: 'Property Intelligence Centre',
     description: 'Advanced property due diligence utilizing GIS maps, satellite imagery, survey plans, and historical ownership chronologies.',
     detailedDescription: 'Our intelligence services compile geospatial data, registry entries, and historical zoning maps. We construct a comprehensive dashboard of a property’s physical and legal boundary history, protecting buyers and developers from costly encroachment or land classification errors.',
@@ -49,7 +49,7 @@ export const SERVICES: Service[] = [
   {
     id: 'missing-property',
     iconName: 'MapPin',
-    imageUrl: '/assets/icon-missing-3d-floating.png',
+    imageUrl: '/assets/icon-missing-3d-floating.webp',
     title: 'Missing Property Recovery',
     description: 'Locating properties lost due to township developments, compulsory government acquisition, or historical zoning changes.',
     detailedDescription: 'Valuable ancestral land often gets lost in government acquisitions, highway constructions, or township consolidation projects. We trace lost coordinates, audit replacement land allocations, and determine if outstanding compensation funds remain unclaimed by the rightful heirs.',
@@ -64,7 +64,7 @@ export const SERVICES: Service[] = [
   {
     id: 'asset-tracing',
     iconName: 'Coins',
-    imageUrl: '/assets/icon-asset-3d-floating.png',
+    imageUrl: '/assets/icon-asset-3d-floating.webp',
     title: 'Asset Tracing & Recovery',
     description: 'Identifying and mapping residential, commercial, agricultural, corporate, and vehicle assets held under small or large estates.',
     detailedDescription: 'We trace assets from single residential homes to sprawling agricultural plantations, corporate shareholdings, bank funds, and international holdings. Our investigations map out current assets, identify unauthorized transfers, and verify hidden ownership structures.',
@@ -79,7 +79,7 @@ export const SERVICES: Service[] = [
   {
     id: 'title-investigation',
     iconName: 'FileText',
-    imageUrl: '/assets/icon-title-3d-floating.png',
+    imageUrl: '/assets/icon-title-3d-floating.webp',
     title: 'Title & Document Investigation',
     description: 'Locating and verifying missing land titles, Deeds of Gift, wills, court orders, and land registry records.',
     detailedDescription: 'When original documents are lost, misplaced, or withheld, we retrieve certified copies, explore registry files, search court probate records, and locate legal agreements (SPAs, Wills, Deeds of Gift) to establish formal chains of custody and legal security.',
@@ -94,7 +94,7 @@ export const SERVICES: Service[] = [
   {
     id: 'fraud-investigation',
     iconName: 'ShieldAlert',
-    imageUrl: '/assets/icon-fraud-3d-floating.png',
+    imageUrl: '/assets/icon-fraud-3d-floating.webp',
     title: 'Fraud & Dispute Investigation',
     description: 'Exposing forged signatures, fake deeds, invalid powers of attorney, and fraudulent claims to family properties.',
     detailedDescription: 'We conduct forensic analyses of questionable property transfers. Our team investigates fraudulent signatures, unauthorized powers of attorney, fake registry entries, and illegal sales, delivering an independent factual report for legal action.',
@@ -109,7 +109,7 @@ export const SERVICES: Service[] = [
   {
     id: 'legal-coordination',
     iconName: 'Handshake',
-    imageUrl: '/assets/icon-legal-3d-floating.png',
+    imageUrl: '/assets/icon-legal-3d-floating.webp',
     title: 'Legal & Authority Coordination',
     description: 'Preparing evidence portfolios, coordinating with land offices, and referring clients to expert probate and land attorneys.',
     detailedDescription: 'We translate our investigation findings into legal evidence files. We refer clients to elite, experienced attorneys specializing in land law, probate, and inheritance, coordinating with government agencies and survey offices through to case resolution.',
@@ -124,7 +124,7 @@ export const SERVICES: Service[] = [
   {
     id: 'property-sale',
     iconName: 'Home',
-    imageUrl: '/assets/icon-missing-3d-floating.png',
+    imageUrl: '/assets/icon-missing-3d-floating.webp',
     title: 'Property Sale Coordination',
     description: 'Facilitating valuation, marketing, and subsale transaction coordination for recovered or inherited real estate assets.',
     detailedDescription: 'Once property ownership disputes are resolved, we help clients unlock the financial value of their assets. Working alongside licensed real estate professionals, we assist with property valuations, marketing campaigns, and subsale transaction compliance.',
@@ -139,7 +139,7 @@ export const SERVICES: Service[] = [
   {
     id: 'buyer-matching',
     iconName: 'UserCheck',
-    imageUrl: '/assets/icon-legal-3d-floating.png',
+    imageUrl: '/assets/icon-legal-3d-floating.webp',
     title: 'Investor & Buyer Matching',
     description: 'Connecting property owners with a vetted network of real estate investors, cash buyers, and developers.',
     detailedDescription: 'For clients seeking quick liquidations or partnership deals on newly resolved tracts of land and commercial blocks, we coordinate directly with our private investor network, matchmaking sellers with qualified cash buyers and developers.',
@@ -154,7 +154,7 @@ export const SERVICES: Service[] = [
   {
     id: 'investment-consultancy',
     iconName: 'TrendingUp',
-    imageUrl: '/assets/icon-asset-3d-floating.png',
+    imageUrl: '/assets/icon-asset-3d-floating.webp',
     title: 'Investment Consultancy',
     description: 'Advising on property due diligence, acquisition feasibility, development potential, and risk mitigation strategies.',
     detailedDescription: 'We guide real estate buyers, developers, and funds through acquisition due diligence. Our consultancy reviews ownership histories, restrictive covenants, zoning limits, and development risks to ensure every investment is sound and legally protected.',
@@ -169,7 +169,7 @@ export const SERVICES: Service[] = [
   {
     id: 'renovation-consultancy',
     iconName: 'Wrench',
-    imageUrl: '/assets/icon-title-3d-floating.png',
+    imageUrl: '/assets/icon-title-3d-floating.webp',
     title: 'Renovation & ROI Consultancy',
     description: 'Evaluating property upgrades, coordinating contractors, and structuring renovations to maximize resale market value.',
     detailedDescription: 'We help clients maximize the market value of recovered or inherited properties before sale. We coordinate structural and cosmetic upgrades, establish contractor budgets, and conduct ROI analyses to ensure renovations yield optimal capital gains.',
@@ -237,7 +237,6 @@ export const CASE_STATS = {
 // Headline stats bar — real, verifiable figures only.
 export const STATS: Stat[] = [
   { id: 'st-years', value: '17+', label: 'Years Established', iconName: 'CalendarClock' },
-  { id: 'st-cases', value: '227+', label: 'Cases Completed', iconName: 'FolderCheck' },
-  { id: 'st-active', value: '30+', label: 'Active Cases', iconName: 'Activity' },
-  { id: 'st-disciplines', value: '12', label: 'Core Disciplines', iconName: 'ShieldCheck' }
+  { id: 'st-cases', value: '227+', label: 'Cases Completed', iconName: 'FolderCheck' }
 ];
+

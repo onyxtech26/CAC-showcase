@@ -75,7 +75,7 @@ export default function About() {
               className="relative z-10 w-full h-full flex items-center justify-center pointer-events-none select-none p-2"
             >
               <img
-                src="/assets/about-forensic-malaysia-3d.png"
+                src="/assets/about-forensic-malaysia-3d.webp"
                 alt="CAC Property Forensic Investigation 3D Estate & Title Deed Model"
                 className="w-full max-h-[480px] lg:max-h-[540px] object-contain scale-100 md:scale-105 lg:scale-105 filter drop-shadow-[0_20px_40px_rgba(202,138,4,0.3)] transition-transform duration-700 hover:scale-110"
               />

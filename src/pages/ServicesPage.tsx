@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { SERVICES } from '../data';
 import { Search, ArrowRight, ShieldCheck } from 'lucide-react';
+import ServiceIconArt from '../components/ui/ServiceIconArt';
 
 export default function ServicesPage() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -53,15 +54,17 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.05 }}
-            className="bg-surface/50 border border-secondary/15 rounded-2xl p-6 flex flex-col justify-between hover:border-tertiary/40 transition-all duration-300 backdrop-blur-md group"
+            className="glass-surface elevated relative p-6 flex flex-col justify-between transition-colors duration-300 group"
           >
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="w-8 h-8 rounded-lg bg-tertiary/10 border border-tertiary/30 flex items-center justify-center font-mono text-xs text-tertiary font-bold">
-                  0{index + 1}
-                </span>
+            <span aria-hidden="true" className="gold-border" />
+            <div className="relative z-[1] space-y-4">
+              <div className="flex items-start justify-between gap-4">
+                <ServiceIconArt
+                  serviceId={service.id}
+                  className="w-24 transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-1"
+                />
                 <span className="font-mono text-[10px] uppercase text-tertiary/70 tracking-widest">
-                  Verified Protocol
+                  {String(index + 1).padStart(2, '0')} · Verified
                 </span>
               </div>
 
@@ -83,7 +86,7 @@ export default function ServicesPage() {
               </ul>
             </div>
 
-            <div className="pt-6">
+            <div className="relative z-[1] pt-6">
               <Link
                 to={`/services/${service.id}`}
                 className="w-full flex items-center justify-between p-3 rounded-xl bg-secondary/10 hover:bg-tertiary text-on-surface hover:text-surface font-mono text-xs uppercase font-semibold transition-all duration-300 border border-secondary/20 hover:border-tertiary"

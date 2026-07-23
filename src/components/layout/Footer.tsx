@@ -94,7 +94,7 @@ export default function Footer() {
         {/* Brand Column */}
         <div className="space-y-4">
           <div className="flex items-center gap-2 group cursor-pointer">
-            <img src="/icon.png" alt="CAC" className="h-8 w-auto" />
+            <img src="/icon.webp" alt="CAC" className="h-8 w-auto" />
             <span className="h-4 w-[1px] bg-secondary/20"></span>
             <span className="font-mono text-[9px] tracking-[0.2em] text-on-surface-variant/60 uppercase">
               Turning Intelligence Into Evidence
@@ -182,7 +182,7 @@ export default function Footer() {
               className="inline-flex items-center hover:opacity-80 transition-opacity"
             >
               <img
-                src="/assets/onyxx-tech-logo.png"
+                src="/assets/onyxx-tech-logo.webp"
                 alt="Onyxx Tech"
                 className="h-5 sm:h-6 md:h-7 w-auto object-contain"
               />

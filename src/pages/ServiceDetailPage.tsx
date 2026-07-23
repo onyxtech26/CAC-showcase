@@ -2,6 +2,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { SERVICES } from '../data';
 import { ArrowLeft, ShieldCheck, CheckCircle2, FileText, ArrowRight } from 'lucide-react';
+import ServiceIconArt from '../components/ui/ServiceIconArt';
 
 export default function ServiceDetailPage() {
   const { serviceId } = useParams<{ serviceId: string }>();
@@ -43,12 +44,20 @@ export default function ServiceDetailPage() {
         <span className="font-mono text-xs text-tertiary uppercase tracking-[0.25em] block">
           // Core Capability Audit Protocol
         </span>
-        <h1 className="font-display text-4xl sm:text-5xl font-bold text-on-surface leading-tight">
-          {service.title}
-        </h1>
-        <p className="font-sans text-lg text-on-surface-variant font-light leading-relaxed max-w-3xl">
-          {service.description}
-        </p>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-6">
+          <ServiceIconArt
+            serviceId={service.id}
+            className="w-32"
+          />
+          <div className="space-y-4">
+            <h1 className="font-display text-4xl sm:text-5xl font-bold text-on-surface leading-tight">
+              {service.title}
+            </h1>
+            <p className="font-sans text-lg text-on-surface-variant font-light leading-relaxed max-w-3xl">
+              {service.description}
+            </p>
+          </div>
+        </div>
       </motion.div>
 
       {/* Detailed Content & Checklist */}

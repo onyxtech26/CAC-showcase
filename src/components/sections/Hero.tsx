@@ -54,7 +54,7 @@ export default function Hero({ onBookConsultation }: HeroProps) {
               </span>
               <span className="block overflow-hidden pb-[0.12em] -mb-[0.12em]">
                 <motion.span
-                  className="block font-medium text-tertiary"
+                  className="block font-medium text-gold-gradient"
                   initial={{ y: '115%' }}
                   animate={{ y: 0 }}
                   transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.28 }}
@@ -104,12 +104,13 @@ export default function Hero({ onBookConsultation }: HeroProps) {
           className="relative h-[480px] lg:h-[580px] hidden md:flex items-center justify-center pointer-events-none select-none"
         >
           <div className="relative w-full h-full flex items-center justify-center animate-float">
-            {/* Ambient golden glow ring behind the floating model */}
-            <div className="absolute w-[80%] h-[80%] rounded-full bg-radial from-tertiary/20 via-secondary/10 to-transparent blur-3xl pointer-events-none" />
+            {/* Spotlight: layered navy halo + warm gold core behind the floating model */}
+            <div className="absolute w-[92%] h-[92%] rounded-full bg-radial from-secondary/20 via-secondary/5 to-transparent blur-3xl pointer-events-none" />
+            <div className="absolute w-[62%] h-[62%] rounded-full bg-radial from-tertiary/35 via-tertiary/10 to-transparent blur-2xl pointer-events-none" />
 
             {/* Floating 3D Transparent Model Asset */}
             <img
-              src="/assets/hero-3d-floating.png"
+              src="/assets/hero-3d-floating.webp"
               alt="CAC Floating 3D Property Model"
               className="w-full h-full object-contain filter drop-shadow-[0_20px_35px_rgba(202,138,4,0.3)] transition-transform duration-700 hover:scale-105"
             />
