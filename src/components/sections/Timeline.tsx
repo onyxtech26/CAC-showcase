@@ -117,6 +117,7 @@ export default function Timeline() {
   const AUTOPLAY_DURATION = 5000; // 5 seconds per step
 
   const activeStep = STEPS.find(s => s.id === activeStepId) || STEPS[2];
+  const ActiveStepIcon = activeStep.icon;
 
   useEffect(() => {
     if (!isPlaying) return;
@@ -185,13 +186,18 @@ export default function Timeline() {
             {STEPS.map((step) => {
               const isActive = step.id === activeStepId;
               const isHighlight = step.id === 3; // "Evaluate" high interest stage
+              const StepIcon = step.icon;
 
               return (
-                <div
+                <button
+                  type="button"
                   key={step.id}
                   onClick={() => handleStepSelect(step.id)}
                   className="flex flex-col items-center text-center group cursor-pointer snap-center"
                   id={`timeline-step-${step.id}`}
+                  aria-pressed={isActive}
+                  aria-controls="timeline-active-content"
+                  aria-label={`Stage ${step.id}: ${step.label}, ${step.sub}`}
                 >
                   {/* Node Diamond Container */}
                   <div className="relative mb-8 flex items-center justify-center w-12 h-12">
@@ -228,17 +234,21 @@ export default function Timeline() {
                     <motion.div
                       whileHover={{ scale: 1.15, rotate: 45 }}
                       animate={{ rotate: 45 }}
-                      className={`w-5 h-5 border transition-all duration-300 relative z-10 flex items-center justify-center ${isActive
+                      transition={{ duration: 0.2 }}
+                      className={`w-7 h-7 border transition-all duration-300 relative z-10 flex items-center justify-center ${isActive
                           ? isHighlight
                             ? 'bg-tertiary border-tertiary shadow-[0_0_15px_rgba(202,138,4,0.4)]'
                             : 'bg-secondary border-secondary shadow-[0_0_15px_rgba(19,41,75,0.4)]'
                           : 'bg-surface-container-high border-secondary/40 group-hover:bg-secondary/10 group-hover:border-secondary'
                         }`}
                     >
-                      {/* Nested static visual indicator in normal state */}
-                      {!isActive && (
-                        <div className="w-1.5 h-1.5 bg-secondary/30 rounded-none" />
-                      )}
+                      <StepIcon
+                        aria-hidden="true"
+                        className={`w-3.5 h-3.5 -rotate-45 transition-colors duration-300 ${
+                          isActive ? 'text-white' : 'text-secondary/60 group-hover:text-secondary'
+                        }`}
+                        strokeWidth={1.8}
+                      />
                     </motion.div>
                   </div>
 
@@ -255,7 +265,7 @@ export default function Timeline() {
                   <p className="font-mono text-[10px] tracking-widest text-on-surface-variant uppercase mt-1">
                     {step.sub}
                   </p>
-                </div>
+                </button>
               );
             })}
             </div>
@@ -275,13 +285,25 @@ export default function Timeline() {
           >
             {/* Step summary column */}
             <div className="md:col-span-2 space-y-4">
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-xs text-secondary font-bold px-2 py-0.5 border border-secondary/30 bg-secondary/5">
-                  STAGE <RollingNumber value={`0${activeStep.id}`} duration={500} />
-                </span>
-                <h4 className="font-display text-2xl font-bold text-on-surface">
-                  {activeStep.label}: {activeStep.sub}
-                </h4>
+              <div className="flex items-center gap-4">
+                <div
+                  className={`w-12 h-12 shrink-0 border flex items-center justify-center ${
+                    activeStep.id === 3
+                      ? 'border-tertiary/30 bg-tertiary/10 text-tertiary'
+                      : 'border-secondary/20 bg-secondary/5 text-secondary'
+                  }`}
+                  aria-hidden="true"
+                >
+                  <ActiveStepIcon className="w-5 h-5" strokeWidth={1.7} />
+                </div>
+                <div className="min-w-0">
+                  <span className="font-mono text-xs text-secondary font-bold px-2 py-0.5 border border-secondary/30 bg-secondary/5 inline-block">
+                    STAGE <RollingNumber value={`0${activeStep.id}`} duration={500} />
+                  </span>
+                  <h4 className="font-display text-2xl font-bold text-on-surface mt-2">
+                    {activeStep.label}: {activeStep.sub}
+                  </h4>
+                </div>
               </div>
               <p className="font-sans text-sm sm:text-base text-on-surface-variant leading-relaxed font-light">
                 {activeStep.details}
