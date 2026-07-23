@@ -13,9 +13,10 @@ const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ServicesPage = lazy(() => import('./pages/ServicesPage'));
 const ServiceDetailPage = lazy(() => import('./pages/ServiceDetailPage'));
 const ProcessPage = lazy(() => import('./pages/ProcessPage'));
-const TrackRecordPage = lazy(() => import('./pages/TrackRecordPage'));
 const WhyCACPage = lazy(() => import('./pages/WhyCACPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
+
+import SplashScreen from './components/ui/SplashScreen';
 
 export default function App() {
   const [isInquiryLogOpen, setIsInquiryLogOpen] = useState(false);
@@ -30,6 +31,9 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      {/* Initial Brand Introduction Splash Screen */}
+      <SplashScreen />
+
       <ScrollToTop />
       <div className="min-h-screen bg-transparent text-on-surface font-sans selection:bg-secondary selection:text-surface flex flex-col justify-between">
         {/* Static premium land-survey graphic background */}
@@ -47,7 +51,6 @@ export default function App() {
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
               <Route path="/process" element={<ProcessPage />} />
-              <Route path="/projects" element={<TrackRecordPage />} />
               <Route path="/why-cac" element={<WhyCACPage />} />
               <Route path="/contact" element={<ContactPage onInquirySubmitted={handleInquirySubmitted} />} />
             </Routes>

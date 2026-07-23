@@ -18,6 +18,10 @@
   --color-secondary: #13294b;
   --color-primary-container: #eef1f6;
   --color-tertiary: #a8791f;
+  /* Champagne highlight so gold can actually read as metallic (not muted ochre). */
+  --color-gold-highlight: #e6c06a;
+  /* Reusable metallic-gold sweep: highlight → core ochre → deep shadow. */
+  --gradient-gold: linear-gradient(135deg, #e6c06a 0%, #c79a35 45%, #a8791f 100%);
 
   --animate-fade-in: fade-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-float: float 7s ease-in-out infinite;
@@ -58,10 +62,15 @@
 }
 
 @utility glass-surface {
-  background: rgba(255, 255, 255, 0.68);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
   backdrop-filter: blur(20px) saturate(140%);
-  border: 1px solid rgba(19, 41, 75, 0.08);
-  box-shadow: 0 8px 32px 0 rgba(19, 41, 75, 0.06);
+  border: 1px solid rgba(19, 41, 75, 0.1);
+  border-radius: 16px;
+  /* Multi-layer elevation + inset top highlight so the card reads as lifted glass. */
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    0 2px 6px -2px rgba(19, 41, 75, 0.12),
+    0 18px 40px -20px rgba(19, 41, 75, 0.28);
 }
 
 /* Full-section liquid-glass / glassmorphism panel.
@@ -130,10 +139,16 @@
   -webkit-backdrop-filter: blur(18px) saturate(150%);
   border: 1px solid rgba(19, 41, 75, 0.08);
   border-radius: 16px;
-  box-shadow: 0 18px 40px -22px rgba(19, 41, 75, 0.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    0 2px 8px -3px rgba(19, 41, 75, 0.14),
+    0 22px 48px -22px rgba(19, 41, 75, 0.3);
   transition: box-shadow 0.4s ease, transform 0.4s ease;
   &:hover {
-    box-shadow: 0 24px 50px -20px rgba(19, 41, 75, 0.28);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 4px 12px -4px rgba(19, 41, 75, 0.16),
+      0 30px 60px -20px rgba(19, 41, 75, 0.36);
   }
 }
 
@@ -187,8 +202,139 @@
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease, border-color 0.3s ease;
   &:hover {
     transform: translateY(-6px);
-    box-shadow: 0 26px 55px -26px rgba(19, 41, 75, 0.35);
+    box-shadow:
+      0 4px 12px -4px rgba(19, 41, 75, 0.18),
+      0 30px 60px -22px rgba(19, 41, 75, 0.42);
   }
+}
+
+/* ---------- Depth kit: elevation, dark contrast bands, dimensional icons ---------- */
+
+/* Elevated surface: multi-layer shadow + inset top highlight so a box reads as
+   physically lifted off the page rather than a flat outline. */
+@utility elevated {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 2px 6px -2px rgba(19, 41, 75, 0.12),
+    0 20px 44px -22px rgba(19, 41, 75, 0.3);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease, border-color 0.3s ease;
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 4px 14px -4px rgba(19, 41, 75, 0.16),
+      0 34px 66px -22px rgba(19, 41, 75, 0.4);
+  }
+}
+
+/* Deep-navy contrast band: the dramatic dark "moment" that breaks the all-ivory
+   monotony. Blueprint grid + top/bottom gold hairlines, light text over navy. */
+@utility dark-band {
+  position: relative;
+  overflow: hidden;
+  color: #f3f1ea;
+  background:
+    radial-gradient(900px 480px at 15% -20%, rgba(230, 192, 106, 0.12), transparent 60%),
+    radial-gradient(760px 460px at 100% 120%, rgba(230, 192, 106, 0.08), transparent 55%),
+    linear-gradient(160deg, #0c1c34 0%, #13294b 55%, #0f2039 100%);
+  background-color: #0f2039;
+  box-shadow: 0 30px 70px -34px rgba(12, 28, 52, 0.7);
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 54px 54px;
+    mask-image: radial-gradient(120% 120% at 50% 0%, #000 40%, transparent 100%);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(230, 192, 106, 0.55), transparent);
+  }
+}
+
+/* Dimensional icon chip: gradient navy tile with an inner top highlight and a
+   soft drop shadow — replaces the flat line-icon-in-a-tinted-square. */
+@utility icon-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: linear-gradient(150deg, #1c355e 0%, #13294b 50%, #0e1e38 100%);
+  border: 1px solid rgba(230, 192, 106, 0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -6px 12px -6px rgba(0, 0, 0, 0.5),
+    0 10px 22px -10px rgba(19, 41, 75, 0.55);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+
+/* Approved CAC 3D service-icon family. Each icon is an isolated transparent
+   image, preventing neighboring artwork from bleeding across sprite cells. */
+.service-icon-art {
+  position: relative;
+  display: inline-block;
+  flex: 0 0 auto;
+  aspect-ratio: 9 / 8;
+  overflow: hidden;
+  isolation: isolate;
+  background: transparent;
+}
+
+.service-icon-art__image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(1.01);
+  transform-origin: center;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.45s ease;
+}
+
+.group:hover .service-icon-art__image {
+  transform: scale(1.055);
+  filter: saturate(1.06) contrast(1.02);
+}
+
+/* Gold gradient hairline border (via mask) for a featured / premium edge. */
+@utility gold-border {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(135deg, rgba(230, 192, 106, 0.65), rgba(168, 121, 31, 0.1) 45%, rgba(230, 192, 106, 0.5));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  .group:hover & {
+    opacity: 1;
+  }
+}
+
+/* Metallic gold text (for one headline accent moment). */
+@utility text-gold-gradient {
+  background: linear-gradient(135deg, #e6c06a 0%, #c79a35 50%, #a8791f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 /* Hide the scrollbar on a scrollable element (used inside modals/panels). */

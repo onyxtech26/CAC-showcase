@@ -152,7 +152,7 @@ export default function Contact({ onInquirySubmitted }: ContactProps) {
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-8">
               <div className="w-20 h-20 rounded-full border-2 border-tertiary p-0.5 overflow-hidden bg-surface-container flex-shrink-0 transition-all duration-300 hover:scale-105 hover:border-secondary hover:shadow-lg hover:shadow-tertiary/30">
                 <img
-                  src="/assets/mohaan-portrait.png"
+                  src="/assets/mohaan-portrait.webp"
                   alt="Mohaan - Forensic Consultant"
                   className="w-full h-full rounded-full object-cover object-top"
                 />

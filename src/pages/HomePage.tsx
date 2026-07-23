@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import Hero from '../components/sections/Hero';
 import StatsBar from '../components/sections/StatsBar';
 import Contact from '../components/sections/Contact';
-import { SERVICES, COMPLETED_PROJECTS } from '../data';
+import ServiceIconArt from '../components/ui/ServiceIconArt';
+import { SERVICES } from '../data';
 import { ShieldCheck, ArrowRight, ChevronRight, FileSearch, Layers } from 'lucide-react';
 
 import SEO from '../components/utils/SEO';
@@ -64,15 +65,17 @@ export default function HomePage({ onInquirySubmitted }: HomePageProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-surface/50 border border-secondary/15 rounded-2xl p-6 space-y-4 backdrop-blur-md flex flex-col justify-between hover:border-tertiary/40 transition-all duration-300"
+              className="glass-surface elevated group relative rounded-2xl p-6 space-y-4 flex flex-col justify-between"
             >
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="w-8 h-8 rounded-lg bg-tertiary/10 border border-tertiary/30 flex items-center justify-center font-mono text-xs text-tertiary font-bold">
-                    0{index + 1}
-                  </span>
+              <span aria-hidden="true" className="gold-border" />
+              <div className="relative z-[1] space-y-3">
+                <div className="flex items-start justify-between gap-4">
+                  <ServiceIconArt
+                    serviceId={service.id}
+                    className="w-20 transition-transform duration-300 group-hover:-translate-y-1 group-hover:rotate-1"
+                  />
                   <span className="font-mono text-[10px] uppercase text-tertiary/70 tracking-widest">
-                    Verified
+                    0{index + 1} / Verified
                   </span>
                 </div>
                 <h3 className="font-display text-xl font-bold text-on-surface">
@@ -120,38 +123,42 @@ export default function HomePage({ onInquirySubmitted }: HomePageProps) {
             </div>
           </div>
 
-          <div className="flex justify-center">
+          <div className="relative flex justify-center">
+            {/* Spotlight glow behind the floating estate model */}
+            <div className="absolute w-[70%] h-[70%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-radial from-tertiary/30 via-secondary/10 to-transparent blur-3xl pointer-events-none" />
             <img
-              src="/assets/about-forensic-malaysia-3d.png"
+              src="/assets/about-forensic-malaysia-3d.webp"
               alt="CAC Malaysian Estate 3D Model"
-              className="max-h-[360px] object-contain filter drop-shadow-[0_20px_40px_rgba(202,138,4,0.3)] animate-float"
+              className="relative max-h-[360px] object-contain filter drop-shadow-[0_20px_40px_rgba(202,138,4,0.3)] animate-float"
             />
           </div>
         </div>
       </section>
 
-      {/* 5. Process & Intelligence Teaser */}
-      <section className="py-12 px-6 md:px-12 xl:px-20 max-w-[1440px] mx-auto text-center space-y-8">
-        <div className="max-w-2xl mx-auto space-y-3">
-          <span className="font-mono text-xs text-tertiary uppercase tracking-[0.25em] block">
-            // Evidence &amp; Methodology
-          </span>
-          <h2 className="font-display text-3xl font-bold text-on-surface">
-            Standardized 5-Step Forensic Process
-          </h2>
-          <p className="font-sans text-sm text-on-surface-variant font-light leading-relaxed">
-            Every case follows a strict protocol from historical land registry searches to court-ready evidence file compilation.
-          </p>
-        </div>
+      {/* 5. Process & Intelligence Teaser — deep-navy accent moment */}
+      <section className="px-6 md:px-12 xl:px-20 max-w-[1440px] mx-auto">
+        <div className="dark-band rounded-3xl px-6 md:px-12 py-14 md:py-20 text-center space-y-8">
+          <div className="relative z-[1] max-w-2xl mx-auto space-y-3">
+            <span className="font-mono text-xs text-gold-highlight uppercase tracking-[0.25em] block">
+              // Evidence &amp; Methodology
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-white">
+              Standardized <span className="text-gold-gradient">5-Step</span> Forensic Process
+            </h2>
+            <p className="font-sans text-sm md:text-base text-white/70 font-light leading-relaxed">
+              Every case follows a strict protocol from historical land registry searches to court-ready evidence file compilation.
+            </p>
+          </div>
 
-        <div className="flex justify-center pt-2">
-          <Link
-            to="/process"
-            className="inline-flex items-center gap-2 btn-premium bg-transparent text-on-surface px-8 py-4 font-mono text-xs uppercase font-semibold tracking-wider hover:bg-secondary/10 border border-secondary/30"
-          >
-            <span>Explore 5-Step Process &amp; Intelligence Hub</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div className="relative z-[1] flex justify-center pt-2">
+            <Link
+              to="/process"
+              className="inline-flex items-center gap-2 btn-premium bg-tertiary text-surface px-8 py-4 font-mono text-xs uppercase font-semibold tracking-wider hover:bg-[#f0c368] border border-tertiary shadow-lg"
+            >
+              <span>Explore 5-Step Process &amp; Intelligence Hub</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 

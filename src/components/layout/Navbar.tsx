@@ -29,7 +29,7 @@ export default function Navbar({ onOpenInquiryLog }: NavbarProps) {
       setIsScrolled(window.scrollY > 20);
 
       // Simple active link detection
-      const sections = ['home', 'services', 'about', 'process', 'projects', 'why-cac', 'contact'];
+      const sections = ['home', 'about', 'services', 'process', 'why-cac', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -72,10 +72,9 @@ export default function Navbar({ onOpenInquiryLog }: NavbarProps) {
   const navigate = useNavigate();
 
   const navLinks = [
-    { name: 'Services', path: '/services' },
     { name: 'About Us', path: '/about' },
+    { name: 'Services', path: '/services' },
     { name: 'Our Process', path: '/process' },
-    { name: 'Track Record', path: '/projects' },
     { name: 'Why CAC', path: '/why-cac' },
     { name: 'Contact', path: '/contact' },
   ];
@@ -106,7 +105,7 @@ export default function Navbar({ onOpenInquiryLog }: NavbarProps) {
           className="flex items-center group select-none"
         >
           <img
-            src="/icon.png"
+            src="/icon.webp"
             alt="Conglomerate Appraisal Consultancy"
             className="h-9 md:h-10 w-auto group-hover:scale-110 transition-transform duration-300"
           />

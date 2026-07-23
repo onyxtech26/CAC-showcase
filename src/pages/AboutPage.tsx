@@ -2,6 +2,7 @@ import { motion } from 'motion/react';
 import { ShieldCheck, History, Award, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/utils/SEO';
+import StatsBar from '../components/sections/StatsBar';
 
 export default function AboutPage() {
   return (
@@ -29,6 +30,9 @@ export default function AboutPage() {
           "Uncovering Truth. Protecting Legacies. Creating Value."
         </p>
       </motion.div>
+
+      {/* Headline Track Record — Years Established & Cases Completed */}
+      <StatsBar />
 
       {/* Main Grid: Story & Visual */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -80,7 +84,7 @@ export default function AboutPage() {
           <div className="relative w-full aspect-square max-w-[500px] animate-float flex items-center justify-center">
             <div className="absolute inset-0 rounded-full bg-tertiary/10 blur-[90px] pointer-events-none" />
             <img
-              src="/assets/about-forensic-malaysia-3d.png"
+              src="/assets/about-forensic-malaysia-3d.webp"
               alt="CAC Property Forensic Investigation 3D Model"
               className="w-full h-full object-contain filter drop-shadow-[0_25px_50px_rgba(202,138,4,0.35)]"
             />

@@ -5,8 +5,8 @@ export const WHATSAPP_NUMBER = '60183777716';
 export const WHATSAPP_MESSAGE =
   'Hello CAC, I would like to schedule a forensic consultation regarding property matters / legal / court matters / LA/ PROBET/ JKPTG';
 
-export const whatsappLink = () =>
-  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+export const whatsappLink = (message?: string) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message ?? WHATSAPP_MESSAGE)}`;
 
 export const CONSULT_EMAIL = 'conglomerateac@gmail.com';
 
